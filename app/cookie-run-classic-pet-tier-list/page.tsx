@@ -87,34 +87,62 @@ export default function PetTierListPage() {
           </div>
         </Section>
 
-        <Section title="First pet to build">
+        <Section id="best-pets" title="Detailed S & A Tier Pet Analysis">
           <Prose>
             <p>
-              Your first pet should improve the run you repeat most. If you are
-              clearing episode missions, pick consistency and safety. If you are
-              chasing League score, pick point generation that works with your
-              Cookie skill and treasure setup.
-            </p>
-            <p>
-              Do not upgrade a pet just because it is rare. Upgrade it because
-              it appears in your active loadout and changes your result.
+              Pets serve as critical support pillars. A S-tier Pet provides massive synergy multipliers when paired with its designated Cookie runner, but many also function as top-tier generalists:
             </p>
           </Prose>
+
+          <div className="mt-6 space-y-6">
+            {[
+              {
+                name: 'Lotus Sitter (Tier S — Dedicated Score Synergy)',
+                desc: 'Generates specialized lotus petal Jellies at regular intervals and provides a brief speed boost to Lotus Root Phantom Cookie. This speed boost is crucial, as it allows Lotus Root to clear extra segments within a single skill charge window.',
+              },
+              {
+                name: 'Golden Cheesebird (Tier S — Apex Score Generalist)',
+                desc: 'The best all-round scoring pet. Periodically flies forward to drop high-density yellow cheese jellies. Since its skill functions independently of character type, it can be slotted into any scoring setup with great success.',
+              },
+              {
+                name: 'Mr. Limeguard (Tier S — Economy Multiplier)',
+                desc: 'The ultimate farming pet. Drops custom Lime Potions that restore a small chunk of Energy and spawn gold coins. When combined with Potato Salad Cookie, Mr. Limeguard extends the run duration to maximize coin transformation cycles.',
+              },
+              {
+                name: 'Glitter Pixel Flower (Tier A — Bonus Time Specialist)',
+                desc: 'Periodically drops letters or multipliers that accelerate the meter needed to enter Bonus Time. Excellent for layouts that rely on Gold Pocket Watch treasures.',
+              },
+              {
+                name: 'Cotton Candy Pup (Tier B — Beginner Reviver)',
+                desc: 'Yields a flat revive shield that restores 30 Energy upon death. Great for beginners learning stage segment layouts, but should be replaced by scoring pets once collision rates drop.',
+              },
+            ].map((pet) => (
+              <div key={pet.name} className="rounded-2xl border-2 border-border bg-card p-5">
+                <h3 className="font-heading text-lg font-700 text-foreground mb-2">
+                  {pet.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {pet.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-4">
             <ImageSlot
-              title="Pet roster or pet upgrade screen"
-              description="Add a screenshot that shows the pet list, a selected pet, or the pet upgrade screen. This should help readers see where pet investment decisions happen."
-              suggestedPath="/public/images/pet-tier-roster.png"
+              title="Pet Inventory & Pairings"
+              description="A screenshot of the Pet collection screen. Highlight the pairing indicators that show whether a Pet is matched with its optimal Cookie runner."
+              suggestedPath="/images/pet-tier-roster.png"
             />
           </div>
         </Section>
 
-        <Section title="Cookie pairing rules">
+        <Section id="pairing-meta" title="Synergy Pairing Rules">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[720px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">If your Cookie is...</th>
+                  <th className="p-3 font-700">If your main runner is...</th>
                   <th className="p-3 font-700">Choose a pet that...</th>
                   <th className="p-3 font-700">Avoid</th>
                 </tr>
@@ -122,19 +150,19 @@ export default function PetTierListPage() {
               <tbody>
                 {[
                   [
-                    'A score runner',
-                    'Adds point value, Bonus Time value, or more collectible targets.',
-                    'Pure survival pets after you already survive the route.',
+                    'Potato Salad Cookie (Gold)',
+                    'Mr. Limeguard. Extra Energy potions directly sustain coin cycles.',
+                    'Score-only pets like Lotus Sitter.',
                   ],
                   [
-                    'A mission clearer',
-                    'Helps you stay alive, collect required items, or finish a task.',
-                    'Score-only pets that do not help the mission condition.',
+                    'Lotus Root Phantom (Score)',
+                    'Lotus Sitter. The speed bonus multiplies note production.',
+                    'Coin scale or revival pets that dilute point scores.',
                   ],
                   [
-                    'A coin farmer',
-                    'Pulls in more pickups or supports longer low-risk runs.',
-                    'Pets that require high-level score treasures to matter.',
+                    'Princess Bari (Sustain/Quests)',
+                    'Golden Cheesebird or Cotton Candy Pup for maximum safety.',
+                    'Farming pets that do not help clear quest requirements.',
                   ],
                 ].map(([cookie, choose, avoid]) => (
                   <tr
@@ -151,32 +179,13 @@ export default function PetTierListPage() {
           </div>
         </Section>
 
-        <Section title="Upgrade mistakes">
-          <Callout variant="warning" title="Do not build pets away from your main Cookie">
-            A pet is part of a setup, not a separate trophy. If it does not help
-            the Cookie you run today, save the resources for the pet that does.
+        <Section id="pet-errors" title="Pet Upgrading Traps to Avoid">
+          <Callout variant="warning" title="Upgrade pets in lockstep with their runner">
+            Do not waste gold leveling up Lotus Sitter if your Lotus Root Phantom Cookie is only level 1. Leveling a Pet past level 5 is extremely expensive. Always upgrade your main runner Cookie first, and match the Pet level to support the runner\'s passive stats.
           </Callout>
-          <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Upgrading pets before choosing a main Cookie.</li>
-              <li>Keeping a survival pet after you no longer need the safety.</li>
-              <li>Ignoring pet timing and running into missed pickups.</li>
-              <li>Building three pets when one focused pet would progress faster.</li>
-            </ul>
-            <p>
-              If your score is stuck, compare your pet with your{' '}
-              <Link
-                href="/cookie-run-classic-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                Cookie upgrade plan
-              </Link>{' '}
-              before spending more.
-            </p>
-          </Prose>
         </Section>
 
-        <Section id="faq" title="Pet tier list FAQ">
+        <Section id="faq" title="Pet Tier List FAQ">
           <Faq items={FAQ} />
         </Section>
 

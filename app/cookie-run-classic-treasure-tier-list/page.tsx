@@ -89,48 +89,70 @@ export default function TreasureTierListPage() {
           </div>
         </Section>
 
-        <Section title="Spending checklist">
-          <Callout variant="warning" title="Used upgrade items cannot be restored">
-            Before using rare treasure items, make sure the treasure is in your
-            main loadout, helps your current goal, and will still be useful
-            after you change Cookies.
-          </Callout>
+        <Section id="best-treasures" title="Detailed S & A Tier Treasure Analysis">
           <Prose>
-            <ol className="ml-5 list-decimal space-y-2">
-              <li>Choose your main Cookie and pet first.</li>
-              <li>Pick treasures that support that setup.</li>
-              <li>Run the same route several times and check what is limiting you.</li>
-              <li>Upgrade only when the treasure fixes that limit.</li>
-              <li>Stop if the treasure is only a temporary placeholder.</li>
-            </ol>
+            <p>
+              Treasures offer passive, account-wide bonuses that scale infinitely. While cookies and pets shift in availability, maxing out your core S-tier treasures will secure your scoring base permanently:
+            </p>
           </Prose>
+
+          <div className="mt-6 space-y-6">
+            {[
+              {
+                name: 'Gold Pocket Watch (Tier S — Apex Score Booster)',
+                desc: 'Extends the total duration of the Bonus Time phase and multiplies all points collected within it. Since Bonus Time is the dense-scoring zone of every run, this is the single most important card to pull with Supreme tickets.',
+              },
+              {
+                name: 'Bear Jelly’s Wristwatch (Tier S — Raw Point Multiplier)',
+                desc: 'Passively increases the score of all Bear Jellies (Yellow, Pink, Ice) by a flat number. Because Bear Jellies represent over 60% of the jelly density in competitive leagues, this treasure is universally strong for all layouts.',
+              },
+              {
+                name: 'Lucky Coin Pouch (Tier S — Economy Engine)',
+                desc: 'Increases all coin pickup values by a flat percentage (up to 20% at max level). This is the cornerstone of Potato Salad gold-farming loops, allowing you to double your hourly gold farming efficiency.',
+              },
+              {
+                name: 'Squishy Jelly Watch (Tier A — Skill Gauge Accelerator)',
+                desc: 'Increases overall jelly spawn rate on the track, assisting cookies that require total jelly counts to trigger their active transformations (such as Princess Bari).',
+              },
+              {
+                name: 'Sugar Swan Feather (Tier A — Collision Shield & Magnet)',
+                desc: 'Grants an energy shield that absorbs one collision hit on start and introduces a moderate magnetic vacuum effect. This magnet pull lets you sweep up jellies without having to risk mistimed double-jumps.',
+              },
+            ].map((treasure) => (
+              <div key={treasure.name} className="rounded-2xl border-2 border-border bg-card p-5">
+                <h3 className="font-heading text-lg font-700 text-foreground mb-2">
+                  {treasure.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {treasure.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-4">
             <ImageSlot
-              title="Treasure inventory or upgrade confirmation"
-              description="Add a screenshot of the treasure inventory, selected treasure details, or the upgrade confirmation screen. This is the best place to show where rare upgrade items are spent."
-              suggestedPath="/public/images/treasure-upgrade-check.png"
+              title="Treasure Deck & Upgrades"
+              description="A screenshot of the Treasure inventory. Highlight the three equipped card slots and showing the upgrade button and Supreme ticket cost."
+              suggestedPath="/images/treasure-upgrade-check.png"
             />
           </div>
         </Section>
 
-        <Section title="Choose by use case">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <Section id="treasure-formulas" title="The 3 Equipped Slot Formulas">
+          <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
-                title: 'Score treasures',
-                body: 'Use these when your goal is League ranking. They should increase point value, Bonus Time value, pickup value, or route consistency.',
+                title: 'Scoring Meta Formula',
+                body: 'Gold Pocket Watch (S) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A). Maxes out points during active skill triggers and Bonus Time.',
               },
               {
-                title: 'Survival treasures',
-                body: 'Use these when you die before the score route opens up. Replace them when you can clear the same path reliably.',
+                title: 'Gold Farming Formula',
+                body: 'Lucky Coin Pouch (S) + Sugar Swan Feather (A) + Squishy Jelly Watch (A). Magnet effect ensures you never miss a coin, while the Pouch multiplies values.',
               },
               {
-                title: 'Daily resource treasures',
-                body: 'Use these for coin or farming sessions. Keep them separate from your best score loadout.',
-              },
-              {
-                title: 'Placeholder treasures',
-                body: 'Use them only until your main setup is ready. Do not spend rare upgrade items on them.',
+                title: 'Sustain / Quest Formula',
+                body: 'Sugar Swan Feather (A) + Cotton Candy Potion (B) + Bear Jelly’s Wristwatch (S). Focuses on extra lives, shields, and passive magnets for easy clears.',
               },
             ].map((item) => (
               <div
@@ -148,35 +170,23 @@ export default function TreasureTierListPage() {
           </div>
         </Section>
 
-        <Section title="Stop-upgrade rules">
+        <Section id="spending-rules" title="Treasure Ticket Spending Rules">
           <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Stop if the treasure is not in your main three-treasure set.</li>
-              <li>Stop if another treasure solves the same job with broader value.</li>
-              <li>Stop if your Cookie or pet is the real bottleneck.</li>
-              <li>Continue if the treasure improves most of your daily runs.</li>
+            <ul className="ml-5 list-disc space-y-2">
+              <li>
+                <strong>Unlock slots first:</strong> Never draw treasures until you have unlocked all 3 equipment slots. Running 3 low-level treasures yields far more stats than 1 high-level treasure.
+              </li>
+              <li>
+                <strong>Level 3 milestone:</strong> Leveling treasures to level 3 unlocks their secondary passive triggers (like the Magnet effect on Sugar Swan Feather). Get your A-tier cards to level 3 before maxing out S-tier cards.
+              </li>
+              <li>
+                <strong>Skip niche cards:</strong> Do not spend Supreme tickets upgrading situational cards (like coin multiplier pouches if you do not farm coins daily).
+              </li>
             </ul>
-            <p>
-              Plan treasures together with your{' '}
-              <Link
-                href="/cookie-run-classic-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                Cookie priority
-              </Link>{' '}
-              and{' '}
-              <Link
-                href="/cookie-run-classic-pet-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                pet pairing
-              </Link>
-              .
-            </p>
           </Prose>
         </Section>
 
-        <Section id="faq" title="Treasure tier list FAQ">
+        <Section id="faq" title="Treasure Tier List FAQ">
           <Faq items={FAQ} />
         </Section>
 

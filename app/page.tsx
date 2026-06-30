@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -22,6 +23,13 @@ import {
   SITE,
 } from '@/lib/data'
 import { Faq } from '@/components/blocks'
+
+export const metadata: Metadata = {
+  title: 'CookieRun Classic Wiki',
+  description:
+    'Codes, redeem steps, beginner route, PC setup, tier lists, pet rankings, treasure rankings, and upgrade priorities for CookieRun Classic.',
+  alternates: { canonical: '/' },
+}
 
 const ICONS = [
   Gift,

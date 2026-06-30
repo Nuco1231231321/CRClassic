@@ -78,29 +78,101 @@ export default function RedeemPage() {
       <PageHero
         breadcrumb="Code Redeem"
         h1="Cookie Run Classic Code Redeem"
-        intro="Redeem CookieRun Classic coupons by entering your DevPlay Account and Coupon Code on the official coupon page, restarting the game, then claiming rewards from Mail."
+        intro="Step-by-step instructions to redeem CookieRun Classic promo codes. Find your DevPlay ID, bypass iOS client restrictions, and fix missing rewards."
         updated={CODES_LAST_CHECKED}
       />
       <PageBody>
-        <Section id="steps" title="Redeem in 3 steps">
-          <ol className="grid gap-4 sm:grid-cols-3">
-            {STEPS.map((s, i) => (
-              <li
-                key={s.title}
-                className="rounded-2xl border-2 border-border bg-card p-5"
+        {/* Table of Contents */}
+        <Section title="Quick Navigation">
+          <div className="flex flex-wrap gap-2">
+            {['#ios-workaround', '#devplay-id', '#redeem-steps', '#troubleshooting'].map((link) => (
+              <a
+                key={link}
+                href={link}
+                className="rounded-xl border border-border bg-secondary/30 px-3 py-1.5 text-xs font-600 text-foreground transition-colors hover:bg-primary/10 hover:text-primary"
               >
-                <span className="flex size-9 items-center justify-center rounded-xl bg-primary font-heading font-700 text-primary-foreground">
-                  {i + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-lg font-600 text-foreground">
-                  {s.title}
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  {s.body}
-                </p>
-              </li>
+                {link.replace('#', '').toUpperCase().replace('-', ' ')}
+              </a>
             ))}
-          </ol>
+          </div>
+        </Section>
+
+        <Section id="ios-workaround" title="iOS Device Restrictions & Workaround">
+          <Callout variant="warning" title="No 'Event Coupon' button on iOS devices">
+            Due to Apple App Store policies, Devsisters **does not include the in-game 'Event Coupon' button on iOS clients**. If you play on an iPhone or iPad, you cannot redeem codes directly from the game settings.
+            <span className="block mt-2">
+              **Workaround:** You must use an external web browser to visit the official Web Coupon Portal and enter your account ID manually.
+            </span>
+          </Callout>
+        </Section>
+
+        <Section id="devplay-id" title="How to find your DevPlay Account ID">
+          <Prose>
+            <p>
+              Your coupon reward will fail to deliver if you submit your in-game nickname instead of your system ID. Follow these steps to find the correct string:
+            </p>
+            <ol className="ml-5 list-decimal space-y-2">
+              <li>Launch CookieRun Classic on your phone.</li>
+              <li>Tap the <strong>Settings (Gear)</strong> icon in the top-right corner.</li>
+              <li>Select the <strong>Game Info</strong> tab from the sidebar.</li>
+              <li>Locate the <strong>DevPlay Account</strong> field. It usually looks like a registered email address or a specific string ending with a domain suffix.</li>
+              <li>Tap the **Copy** button next to it. Do not manually type it, as spelling mistakes will send your crystals to a non-existent account.</li>
+            </ol>
+          </Prose>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <ImageSlot
+              title="DevPlay ID Account Location"
+              description="A screenshot of the in-game Settings -> Game Info panel. Draw a bright red box around the 'DevPlay Account' copy button so players know exactly which string to copy."
+              suggestedPath="/images/redeem-devplay-account.png"
+            />
+            <ImageSlot
+              title="Official Web Coupon Portal"
+              description="A screenshot of coupon.devplay.com. Show the DevPlay Account input box and Coupon Code input box populated with valid values."
+              suggestedPath="/images/redeem-coupon-code.png"
+            />
+          </div>
+        </Section>
+
+        <Section id="redeem-steps" title="Redeem Steps (Web & Android)">
+          <div className="overflow-x-auto rounded-2xl border-2 border-border">
+            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+              <thead>
+                <tr className="bg-secondary text-foreground">
+                  <th className="p-3 font-700">Step</th>
+                  <th className="p-3 font-700">What to Do</th>
+                  <th className="p-3 font-700">Required Inputs / Checkpoints</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  [
+                    '1. Access Portal',
+                    'Android: Tap Settings ➔ Game Info ➔ Event Coupon.\niOS: Open coupon.devplay.com in Safari/Chrome.',
+                    'Make sure the portal URL belongs to devplay.com to protect your account safety.',
+                  ],
+                  [
+                    '2. Fill ID & Code',
+                    'Paste your DevPlay Account ID into the first box, and paste the active code in the second box.',
+                    'Codes are case-sensitive. Clear any trailing blank spaces before clicking submit.',
+                  ],
+                  [
+                    '3. Claim Mailbox',
+                    'Click "Claim Reward", then completely restart the game client.',
+                    'Rewards are sent to the in-game Mailbox. Check under the coupon notices tab.',
+                  ],
+                ].map(([step, action, check]) => (
+                  <tr
+                    key={step}
+                    className="border-t-2 border-border bg-card align-top"
+                  >
+                    <td className="p-3 font-700 text-foreground whitespace-pre-line">{step}</td>
+                    <td className="p-3 text-muted-foreground whitespace-pre-line">{action}</td>
+                    <td className="p-3 text-muted-foreground">{check}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               href={OFFICIAL_COUPON_URL}
@@ -108,108 +180,49 @@ export default function RedeemPage() {
               rel="nofollow noopener"
               target="_blank"
             >
-              Open coupon page
+              Open Official Coupon Portal
               <ArrowRight className="size-5" />
             </Link>
             <Link
               href="/cookie-run-classic-codes"
               className="inline-flex items-center gap-2 rounded-2xl border-2 border-border bg-card px-5 py-3 font-heading font-600 text-foreground transition-transform hover:-translate-y-0.5"
             >
-              View active codes
+              View Active Codes
             </Link>
           </div>
         </Section>
 
-        <Section id="fields" title="What to enter">
-          <div className="overflow-x-auto rounded-2xl border-2 border-border">
-            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-              <thead>
-                <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Field</th>
-                  <th className="p-3 font-700">What it means</th>
-                  <th className="p-3 font-700">Before submitting</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  [
-                    'DevPlay Account',
-                    'The account tied to the save that should receive the reward.',
-                    'Copy it from the game account screen and check spelling.',
-                  ],
-                  [
-                    'Coupon Code',
-                    'The reward code from the codes page or an in-game event.',
-                    'Paste it exactly, with no extra spaces before or after.',
-                  ],
-                  [
-                    'Mail',
-                    'The in-game inbox where rewards are delivered.',
-                    'Restart the game, then open Mail and claim the reward.',
-                  ],
-                ].map(([field, meaning, check]) => (
-                  <tr
-                    key={field}
-                    className="border-t-2 border-border bg-card align-top"
-                  >
-                    <td className="p-3 font-700 text-foreground">{field}</td>
-                    <td className="p-3 text-muted-foreground">{meaning}</td>
-                    <td className="p-3 text-muted-foreground">{check}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            <ImageSlot
-              title="DevPlay Account field"
-              description="Add a screenshot showing the DevPlay Account field on the coupon page or the in-game account screen where the player copies the account value."
-              suggestedPath="/public/images/redeem-devplay-account.png"
-            />
-            <ImageSlot
-              title="Coupon Code field"
-              description="Add a screenshot showing the Coupon Code input field and submit button. The image should make it obvious where players paste the code."
-              suggestedPath="/public/images/redeem-coupon-code.png"
-            />
-            <ImageSlot
-              title="Mail reward screen"
-              description="Add a screenshot of the in-game Mail inbox after a reward arrives, so players know where to claim redeemed coupon rewards."
-              suggestedPath="/public/images/redeem-mail-reward.png"
-            />
-          </div>
-        </Section>
-
-        <Section id="problems" title="Reward not showing?">
+        <Section id="troubleshooting" title="Troubleshooting Missing Rewards">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Problem</th>
-                  <th className="p-3 font-700">What to check</th>
-                  <th className="p-3 font-700">Fix</th>
+                  <th className="p-3 font-700">Common Issue</th>
+                  <th className="p-3 font-700">Root Cause Analysis</th>
+                  <th className="p-3 font-700">Instant Fix</th>
                 </tr>
               </thead>
               <tbody>
                 {[
                   [
-                    'No reward in Mail',
-                    'Game restart and correct account',
-                    'Fully close the game, reopen it, then check Mail again.',
+                    'Coupon claimed, but Mailbox is empty',
+                    'The game needs a connection handshake refresh to pull mailbox updates from the server.',
+                    'Force close the game from your app switcher and relaunch it.',
                   ],
                   [
-                    'Code already used',
-                    'Mail and previous claims',
-                    'Each coupon works once per account. Check whether it was already claimed.',
+                    'Error: "Invalid ID or Account"',
+                    'Inputting nickname instead of the specific system ID string shown in Info tab.',
+                    'Copy the ID directly using the in-game COPY button instead of typing it.',
                   ],
                   [
-                    'Invalid code',
-                    'Capitalization and extra spaces',
-                    'Paste the code again exactly, then submit once.',
+                    'Error: "Already Redeemed"',
+                    'Coupon codes have a strict limit of one use per DevPlay account.',
+                    'Confirm you did not claim it earlier. Check your crystal log or mailbox history.',
                   ],
                   [
-                    'Wrong save received it',
-                    'DevPlay Account entered',
-                    'Use the account details from the save you want to reward next time.',
+                    'Error: "Expired Code"',
+                    'The code has passed its seasonal or event expiration date.',
+                    'Refer to our Active Codes page for codes that are verified to be currently working.',
                   ],
                 ].map(([problem, check, fix]) => (
                   <tr
@@ -224,21 +237,19 @@ export default function RedeemPage() {
               </tbody>
             </table>
           </div>
+          <div className="mt-4">
+            <ImageSlot
+              title="Mailbox Reward Claim Window"
+              description="A screenshot of the in-game mailbox showing the arrived coupon package containing free coins and crystals."
+              suggestedPath="/images/redeem-mail-reward.png"
+            />
+          </div>
         </Section>
 
-        <Section id="safety" title="Account safety checklist">
-          <Callout variant="warning" title="Use only the official coupon page">
-            Coupon redeem does not require your password. Do not use mod APKs,
-            crystal generators, or pages that ask for login passwords.
+        <Section id="safety" title="Account Safety Checklist">
+          <Callout variant="warning" title="Redemption portals never request passwords">
+            The official DevPlay coupon system **only requires your DevPlay Account ID and the promo code**. Any third-party site or portal that asks for your game password, Facebook/Google login credentials, or promises a "Crystal Generator" is a phishing attempt. Never share your credentials.
           </Callout>
-          <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Open the coupon page from the game or the official DevPlay URL.</li>
-              <li>Enter only the account field and coupon code field.</li>
-              <li>Bind your game save before changing devices.</li>
-              <li>Use the codes page for current coupons, then return here for fixes.</li>
-            </ul>
-          </Prose>
         </Section>
 
         <Section id="faq" title="Redeem FAQ">

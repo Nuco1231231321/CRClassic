@@ -258,29 +258,27 @@ export function ImageSlot({
   guidance?: string
 }) {
   return (
-    <figure className="overflow-hidden rounded-2xl border-2 border-dashed border-primary/45 bg-primary/5">
+    <figure className="overflow-hidden rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5">
       <div className="flex aspect-[16/9] flex-col items-center justify-center gap-3 px-6 text-center">
         <span className="flex size-14 items-center justify-center rounded-2xl border-2 border-border bg-card text-primary shadow-[0_3px_0_0_oklch(0.89_0.03_75)]">
           <ImageIcon className="size-7" aria-hidden="true" />
         </span>
         <div>
           <p className="font-heading text-lg font-700 text-foreground">
-            Image needed: {title}
+            📷 Wiki Screenshot Guide: {title}
           </p>
-          <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
             {description}
           </p>
         </div>
       </div>
-      <figcaption className="border-t-2 border-dashed border-primary/30 bg-card/80 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-        <span className="font-700 text-foreground">Suggested file:</span>{' '}
-        <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs text-foreground">
+      <figcaption className="border-t-2 border-dashed border-primary/20 bg-card/60 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+        <span className="font-700 text-foreground">💡 Contribution Reference:</span>{' '}
+        This section is reserved for an in-game screenshot. To contribute to the wiki, you can save your capture as{' '}
+        <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-[10px] text-foreground">
           {suggestedPath}
         </code>
-        <span className="block">
-          {guidance ??
-            'Add the screenshot to this path, then replace this slot with the final ImageFigure in the same section.'}
-        </span>
+        . {guidance ?? 'Follow the visual guide above to match the exact in-game screen before saving.'}
       </figcaption>
     </figure>
   )

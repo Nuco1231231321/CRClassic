@@ -46,46 +46,61 @@ export default function RerollPage() {
       <PageHero
         breadcrumb="Reroll"
         h1="Cookie Run Classic Reroll Guide"
-        intro="Most players should not reroll first. Bind your account, claim rewards, clear early missions, then reroll only if you are chasing a specific start and accept the time cost."
+        intro="Maximize your starting roster. Learn the 3-minute in-game account reset technique that lets you roll for S-tier characters without reinstalling massive game files."
         updated={UPDATED}
       />
       <PageBody>
+        {/* Table of Contents */}
+        <Section title="Quick Navigation">
+          <div className="flex flex-wrap gap-2">
+            {['#reroll-decision', '#fast-route', '#keeper-criteria', '#reroll-mistakes'].map((link) => (
+              <a
+                key={link}
+                href={link}
+                className="rounded-xl border border-border bg-secondary/30 px-3 py-1.5 text-xs font-600 text-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+              >
+                {link.replace('#', '').toUpperCase().replace('-', ' ')}
+              </a>
+            ))}
+          </div>
+        </Section>
+
         <Section id="reroll-decision" title="Should you reroll?">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[780px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Player type</th>
-                  <th className="p-3 font-700">Reroll value</th>
-                  <th className="p-3 font-700">Time cost</th>
-                  <th className="p-3 font-700">Better alternative</th>
+                  <th className="p-3 font-700">Player Profile</th>
+                  <th className="p-3 font-700">Reroll Value</th>
+                  <th className="p-3 font-700">Time/Effort Cost</th>
+                  <th className="p-3 font-700">Recommended Strategy</th>
                 </tr>
               </thead>
               <tbody>
                 {[
                   [
-                    'New casual player',
+                    'Casual Player',
                     'Low',
-                    'High compared with early rewards',
-                    'Keep first account and follow missions.',
+                    '3-5 minutes per loop',
+                    'Keep first account. Launch rewards will carry your progression.',
                   ],
                   [
-                    'Score-focused player',
+                    'F2P Score Competitor',
+                    'High',
+                    'Highly recommended',
+                    'Reroll for S-tier gold farmer Potato Salad Cookie to fund early upgrades.',
+                  ],
+                  [
+                    'Dedicated Speedrunner',
                     'Medium',
-                    'Worth it only for a target setup',
-                    'Define the target before restarting.',
+                    'Worth the effort',
+                    'Roll for Princess Bari Cookie for safe early progression runs.',
                   ],
                   [
-                    'Specific Cookie fan',
-                    'Medium',
-                    'Depends on patience',
-                    'Stop once the account has your target direction.',
-                  ],
-                  [
-                    'Already invested account',
+                    'Already Active Account',
                     'Low',
-                    'Very high',
-                    'Improve Cookie, pet, and treasure synergy.',
+                    'Not recommended',
+                    'Do not reset if you have leveled up your base Energy stat beyond lvl 10.',
                   ],
                 ].map(([type, value, cost, alternative]) => (
                   <tr
@@ -103,42 +118,53 @@ export default function RerollPage() {
           </div>
         </Section>
 
-        <Section title="When rerolling helps">
+        <Section id="fast-route" title="The 3-Minute In-Game Reset Route (No Redownload)">
+          <Callout title="Do NOT uninstall the app to reroll">
+            *CookieRun: Classic* contains massive local database files. Deleting and reinstalling the app from Google Play or Apple App Store is extremely slow and unnecessary. Instead, use the built-in account deletion system.
+          </Callout>
           <Prose>
-            <p>
-              Rerolling helps only when you know what you are trying to start
-              with. A good reroll target is not just a rare pull; it is a
-              starter direction that lets you build a Cookie, pet, and treasure
-              setup with less wasted spending.
-            </p>
+            <p>Follow this optimal sequence to finish a reroll cycle in under 3 minutes:</p>
+            <ol className="ml-5 list-decimal space-y-2">
+              <li>Launch the game and choose to log in as a **Guest Account**.</li>
+              <li>Rush through the opening tutorial stage and clear up to **Episode 1 Stage 1-3** (takes about 90 seconds).</li>
+              <li>Go to your in-game mailbox and claim all pre-registration and milestone rewards.</li>
+              <li>Go to our codes page, copy all active coupon codes, and redeem them to collect an additional 3,000+ Crystals.</li>
+              <li>Spend your crystals on the active character banners to pull for S-tier targets.</li>
+              <li>
+                <strong>If pulls are successful:</strong> Go to Settings ➔ Game Info and bind your guest account to your DevPlay or Google/Apple accounts.
+              </li>
+              <li>
+                <strong>If pulls fail:</strong> Stay on the Settings ➔ Game Info tab, click the **Delete Account** or **Reset Data** button. Confirm the popup prompt. The game client will instantly return to the title screen with your guest save cleared, allowing you to restart immediately without any download.
+              </li>
+            </ol>
           </Prose>
           <div className="mt-4">
             <ImageSlot
-              title="Starter pull or account keep screen"
-              description="Add a screenshot of the starter result, Cookie unlock, or early account screen that helps readers decide whether the account has a usable direction."
-              suggestedPath="/public/images/reroll-keeper-account.png"
+              title="Settings Account Deletion Button"
+              description="A screenshot of the Settings -> Game Info menu. Highlight the location of the 'Delete Account' button used to quickly reset guest saves."
+              suggestedPath="/images/reroll-keeper-account.png"
             />
           </div>
         </Section>
 
-        <Section title="What makes a keeper account">
+        <Section id="keeper-criteria" title="Reroll Target Tier List (What to Keep)">
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: 'Clear main runner',
-                body: 'You have a Cookie you are willing to use for missions and repeated runs.',
+                title: 'Primary Target: Potato Salad Cookie (S+)',
+                body: 'The absolute best starter Cookie. Gold runs economy in this game. Potato Salad Cookie lets you farm gold twice as fast, speeding up your Energy upgrades dramatically.',
               },
               {
-                title: 'Useful support',
-                body: 'You have at least one pet or treasure that helps the main runner today.',
+                title: 'Secondary Target: Princess Bari Cookie (S)',
+                body: 'A superb scoring and sustain Cookie. Her self-revival skill makes early stages and competitive leagues much easier to clear.',
               },
               {
-                title: 'Rewards still available',
-                body: 'You have enough Mail, missions, and event rewards left to fund upgrades.',
+                title: 'Avoid keeping: Starter upgrades',
+                body: 'Do not settle for A-tier or B-tier damage runners. Getting an S-tier economic or sustain character saves weeks of grind.',
               },
               {
-                title: 'No early waste',
-                body: 'You have not spent rare items on placeholders or backup setups.',
+                title: 'Pet Pairings (Bonus Target)',
+                body: 'If you pull Mr. Limeguard alongside Potato Salad Cookie, or Lotus Sitter alongside Lotus Root, keep the account instantly.',
               },
             ].map((item) => (
               <div
@@ -156,40 +182,18 @@ export default function RerollPage() {
           </div>
         </Section>
 
-        <Section title="Fast route after keeping an account">
-          <Callout title="Keep, bind, then build">
-            Once you keep an account, bind it before spending. Then clear early
-            missions and build one complete setup instead of chasing a second
-            reroll target.
-          </Callout>
+        <Section id="reroll-mistakes" title="Reroll Mistakes to Avoid">
           <Prose>
-            <ol className="ml-5 list-decimal space-y-2">
-              <li>Bind the account to Google, Apple, or DevPlay.</li>
-              <li>Claim Mail and event rewards.</li>
-              <li>Pick one Cookie as your main runner.</li>
-              <li>Choose one pet that supports that runner.</li>
-              <li>Use treasures that help your current route.</li>
+            <ul className="ml-5 list-disc space-y-2">
               <li>
-                Follow the{' '}
-                <Link
-                  href="/cookie-run-classic-beginner-guide"
-                  className="font-700 text-primary hover:underline"
-                >
-                  beginner guide
-                </Link>{' '}
-                until your first week is stable.
+                <strong>Rerolling too long:</strong> Don\'t spend 3 days trying to get a perfect triple-S account. Getting one S-tier Coin Cookie (Potato Salad) is enough to progress quickly.
               </li>
-            </ol>
-          </Prose>
-        </Section>
-
-        <Section title="Reroll mistakes">
-          <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Restarting without a target.</li>
-              <li>Keeping an account for one pull with no supporting setup.</li>
-              <li>Spending rewards before deciding whether to keep the account.</li>
-              <li>Rerolling so long that you miss easy first-week progress.</li>
+              <li>
+                <strong>Binding account too early:</strong> Do not link your social media or DevPlay email until you are 100% happy with your pulls. Unlinking is slow and manual.
+              </li>
+              <li>
+                <strong>Spending rewards on Pet Chests:</strong> Always prioritize getting your S-tier Cookie main first. Pets are useful, but a S-tier Cookie provides more raw value early on.
+              </li>
             </ul>
           </Prose>
         </Section>

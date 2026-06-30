@@ -112,9 +112,9 @@ export default function WikiHubPage() {
           </Prose>
           <div className="mt-4">
             <ImageSlot
-              title="Game home screen or guide hub visual"
-              description="Add a broad screenshot that represents the site hub: the game home screen, event lobby, or a clean guide overview image."
-              suggestedPath="/public/images/wiki-hub-overview.png"
+              title="Game Lobby Home Screen"
+              description="A screenshot of the main lobby interface after login. This should display the main menu, League ranking button, and start run button to represent the hub visual."
+              suggestedPath="/images/wiki-hub-overview.png"
             />
           </div>
         </Section>

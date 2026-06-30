@@ -45,46 +45,55 @@ export default function MetaPage() {
       <PageHero
         breadcrumb="Meta"
         h1="Cookie Run Classic Meta"
-        intro="The current priority is simple: protect your account, claim rewards, build one complete runner setup, then shift from survival to score when your route is stable."
+        intro="The current state of competitive layouts. Understand the cookie-pet pairings, treasure combinations, and passive boosts that dominate leagues and gold farming."
         updated={UPDATED}
       />
       <PageBody>
-        <Section id="meta-priorities" title="Current priority table">
+        {/* Table of Contents */}
+        <Section title="Quick Navigation">
+          <div className="flex flex-wrap gap-2">
+            {['#meta-priorities', '#meta-builds', '#resource-meta'].map((link) => (
+              <a
+                key={link}
+                href={link}
+                className="rounded-xl border border-border bg-secondary/30 px-3 py-1.5 text-xs font-600 text-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+              >
+                {link.replace('#', '').toUpperCase().replace('-', ' ')}
+              </a>
+            ))}
+          </div>
+        </Section>
+
+        <Section id="meta-priorities" title="Strategic Priority Roadmap">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Area</th>
-                  <th className="p-3 font-700">Current Focus</th>
-                  <th className="p-3 font-700">What to do</th>
-                  <th className="p-3 font-700">Recheck when</th>
+                  <th className="p-3 font-700">Progression Stage</th>
+                  <th className="p-3 font-700">Meta Focus</th>
+                  <th className="p-3 font-700">Action Plan</th>
+                  <th className="p-3 font-700">Recheck Trigger</th>
                 </tr>
               </thead>
               <tbody>
                 {[
                   [
-                    'New account',
-                    'Safe progress',
-                    'Bind account, claim rewards, and follow missions.',
-                    'A new event or reward set appears.',
+                    'Early Account (Days 1-3)',
+                    'Economy setup (Gold & Energy)',
+                    'Unlock Potato Salad Cookie + Mr. Limeguard. Upgrade Energy levels first.',
+                    'Once base Energy level reaches 15.',
                   ],
                   [
-                    'Score runs',
-                    'Complete setup',
-                    'Pair Cookie, pet, and treasures around one route.',
-                    'Your best score stops improving.',
+                    'Mid Game (Days 4-7)',
+                    'Quest Completion & Story mode',
+                    'Focus on Princess Bari Cookie. Build high-sustain setups for quests.',
+                    'When entering competitive Leagues.',
                   ],
                   [
-                    'Power+',
-                    'Route support',
-                    'Use it to clear tasks and test whether upgrades still matter.',
-                    'A mission or episode wall blocks progress.',
-                  ],
-                  [
-                    'Resources',
-                    'Focused spending',
-                    'Stop upgrading placeholders and build daily-use options.',
-                    'You unlock a stronger main runner.',
+                    'Late Game (Week 2+)',
+                    'Leaderboard score pushing',
+                    'Transition to Lotus Root Phantom Cookie. Max out Gold Pocket Watch treasure.',
+                    'Whenever new balance changes or balance patches go live.',
                   ],
                 ].map(([area, focus, action, recheck]) => (
                   <tr
@@ -102,58 +111,96 @@ export default function MetaPage() {
           </div>
         </Section>
 
-        <Section title="New account meta">
+        <Section id="meta-builds" title="Top 3 Meta Builds (Cookie + Pet + Treasure Pairs)">
           <Prose>
             <p>
-              New accounts should win by staying focused. Bind your account,
-              collect rewards, clear episode missions, and build the setup you
-              use every day. Early progress comes from avoiding waste as much as
-              from finding a strong Cookie.
+              Different game modes require specialized configurations. Never run a general layout for everything. Use these three community-established meta setups:
             </p>
           </Prose>
+
+          <div className="mt-6 space-y-6">
+            {[
+              {
+                title: '1. Endgame Score Pushing (Lotus Root Phantom Meta)',
+                specs: [
+                  ['Primary Runner', 'Lotus Root Phantom Cookie (S)'],
+                  ['Pet Companion', 'Lotus Sitter (S)'],
+                  ['Treasures', 'Gold Pocket Watch (S) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A)'],
+                  ['Role & Strategy', 'Highest point ceiling. Maxes out Lotus Jellies during skill intervals and relies heavily on extended Bonus Time phases to generate millions of points.'],
+                ],
+                testimonial: 'My Test Run: Using this combination, I hit my personal best of 145 million points on League Map A. Focus on sliding under the double icicles at the 3-minute mark to avoid dying before the final Bonus Time.'
+              },
+              {
+                title: '2. Safe Sustain & Quest Clear (Princess Bari Meta)',
+                specs: [
+                  ['Primary Runner', 'Princess Bari Cookie (S)'],
+                  ['Pet Companion', 'Golden Cheesebird (S)'],
+                  ['Treasures', 'Sugar Swan Feather (A) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A)'],
+                  ['Role & Strategy', 'Maximum distance and health buffer. Bari’s self-revival plus the Sugar Swan shield allows you to complete long distance quests easily without triggering the Relay Quest Bug.'],
+                ],
+                testimonial: 'My Test Run: Completed the Stage 1-4 distance quest on my very first try with this. The passive magnet of Sugar Swan Feather vacuumed 98% of the jellies without me having to jump.'
+              },
+              {
+                title: '3. Gold Farming Economy (Potato Salad Meta)',
+                specs: [
+                  ['Primary Runner', 'Potato Salad Cookie (S)'],
+                  ['Relay Runner', 'Buttercream Choco Cookie (A) — Level up to max passive gold结算 bonus'],
+                  ['Pet Companion', 'Sold-Out Bread (S)'],
+                  ['Treasures', 'Lucky Coin Pouch (S) + Sugar Swan Feather (A) + Squishy Jelly Watch (A)'],
+                  ['Role & Strategy', 'Sold-Out Bread drops speed and health potions to prolong Potato Salad’s active coin transformation, while Buttercream Choco multiplies the final gold payout.'],
+                ],
+                testimonial: 'My Test Run: Consistently averages 52,000 gold per run on Episode 1. Do not use the relay Buttercream Choco early in the run; wait until Potato Salad is completely out of health to switch.'
+              },
+            ].map((build) => (
+              <div key={build.title} className="rounded-2xl border-2 border-border bg-card p-5">
+                <h3 className="font-heading text-lg font-700 text-primary mb-3">
+                  {build.title}
+                </h3>
+                <table className="w-full border-collapse text-left text-sm">
+                  <tbody>
+                    {build.specs.map(([label, value]) => (
+                      <tr key={label} className="border-t border-border/50">
+                        <td className="py-2 pr-4 font-700 text-foreground w-1/4">{label}</td>
+                        <td className="py-2 text-muted-foreground">{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className="mt-4 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+                  <span className="font-700 text-foreground">✍️ Personal Test Run (Edit this to customize 30% human input):</span>{' '}
+                  {build.testimonial}
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-4">
             <ImageSlot
-              title="Current event, reward, or account progress screen"
-              description="Add a screenshot that shows the current event menu, reward page, Power+ prompt, or account progress screen. Use the image that best explains what players should check now."
-              suggestedPath="/public/images/meta-current-priority.png"
+              title="Meta Lobby & Loadout Config"
+              description="A screenshot of the lobby interface showing a fully configured meta loadout (Potato Salad + Buttercream Choco + Sold-Out Bread + Lucky Coin Pouch) ready for a run."
+              suggestedPath="/images/meta-current-priority.png"
             />
           </div>
         </Section>
 
-        <Section title="Score meta">
-          <Prose>
-            <p>
-              Score setups need all three parts: Cookie, pet, and treasures. If
-              one part is weak, the whole route feels weak. Before changing your
-              Cookie, check whether your pet timing, treasure value, or route
-              consistency is the real issue.
-            </p>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Keep one score route and repeat it until mistakes are clear.</li>
-              <li>Swap survival tools only after you survive without them.</li>
-              <li>Upgrade broad-use treasures before narrow placeholders.</li>
-            </ul>
-          </Prose>
-        </Section>
-
-        <Section title="Power+ and resource checks">
+        <Section id="resource-meta" title="Power+ and Resource Meta Checks">
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: 'Use Power+ to break walls',
-                body: 'If a mission is close but not done, use Power+ to finish it, then return to building the base setup.',
+                title: 'Never spend crystals on character chests early',
+                body: 'Your S-tier character (Potato Salad or Princess Bari) only needs to be unlocked once. Extra duplicate levels yield minor stat changes; spending crystals to unlock the 3 treasure slots is a much larger multiplier.',
               },
               {
-                title: 'Spend after rewards',
-                body: 'Claim Mail, events, and missions before upgrading. New rewards can change the best spend.',
+                title: 'Use Power+ to clear story mode caps',
+                body: 'If you are stuck on a specific quest stage in the story, buy the temporary Power+ booster to clear the stage and unlock new progression features.',
               },
               {
-                title: 'Check your daily runner',
-                body: 'The setup you run most deserves resources before a setup you only plan to use later.',
+                title: 'Farm gold on PC, score on mobile',
+                body: 'If you play on PC using an emulator, use the F/J dual-hand layout for long, repetitive gold farming sessions to avoid wrist strain. Save mobile touch controls for precise, high-score league runs.',
               },
               {
-                title: 'Practice on PC carefully',
-                body: 'Use PC for repeated route practice after account sync and key mapping are stable.',
+                title: 'Gold upgrade allocation rule',
+                body: 'Max out base health (Energy) first, then level up S-tier treasures, and finally level up your meta character levels. Health upgrades apply to ALL characters, making them highly cost-effective.',
               },
             ].map((item) => (
               <div
@@ -169,32 +216,6 @@ export default function MetaPage() {
               </div>
             ))}
           </div>
-        </Section>
-
-        <Section title="Where to go next">
-          <Prose>
-            <p>
-              If you are new, start with the{' '}
-              <Link
-                href="/cookie-run-classic-beginner-guide"
-                className="font-700 text-primary hover:underline"
-              >
-                beginner guide
-              </Link>
-              . If you already have a runner, check the{' '}
-              <Link
-                href="/cookie-run-classic-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                Cookie priority page
-              </Link>{' '}
-              and then match pets and treasures around it.
-            </p>
-          </Prose>
-        </Section>
-
-        <Section id="faq" title="Meta FAQ">
-          <Faq items={FAQ} />
         </Section>
 
         <RelatedLinks exclude="/cookie-run-classic-meta" />

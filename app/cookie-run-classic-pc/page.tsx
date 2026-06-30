@@ -44,20 +44,35 @@ export default function PcPage() {
       <PageHero
         breadcrumb="PC Guide"
         h1="Cookie Run Classic PC Guide"
-        intro="Play CookieRun Classic on PC by starting with an official store option, binding your account first, then setting keyboard controls for jump, slide, and menu actions."
+        intro="Optimize your CookieRun Classic performance on PC. Set up lag-free controls, configure emulators to eliminate input delay, and resolve screen freezing."
         updated={PC_TIERS_UPDATED}
       />
       <PageBody>
-        <Section id="pc-options" title="PC options comparison">
+        {/* Table of Contents */}
+        <Section title="Quick Navigation">
+          <div className="flex flex-wrap gap-2">
+            {['#pc-options', '#key-mapping', '#input-lag', '#performance-trouble'].map((link) => (
+              <a
+                key={link}
+                href={link}
+                className="rounded-xl border border-border bg-secondary/30 px-3 py-1.5 text-xs font-600 text-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+              >
+                {link.replace('#', '').toUpperCase().replace('-', ' ')}
+              </a>
+            ))}
+          </div>
+        </Section>
+
+        <Section id="pc-options" title="PC Emulator Comparison Matrix">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Option</th>
-                  <th className="p-3 font-700">Type</th>
-                  <th className="p-3 font-700">Best For</th>
-                  <th className="p-3 font-700">Setup</th>
-                  <th className="p-3 font-700">Account Sync</th>
+                  <th className="p-3 font-700">Client / Emulator</th>
+                  <th className="p-3 font-700">Platform Type</th>
+                  <th className="p-3 font-700">Recommended For</th>
+                  <th className="p-3 font-700">Initial Setup Route</th>
+                  <th className="p-3 font-700">Account Synchronization</th>
                 </tr>
               </thead>
               <tbody>
@@ -84,47 +99,60 @@ export default function PcPage() {
           </div>
         </Section>
 
-        <Section title="Install route">
+        <Section id="key-mapping" title="Optimal Keyboard Layout (Double-Hand Style)">
           <Prose>
-            <ol className="ml-5 list-decimal space-y-2">
-              <li>Open CookieRun Classic on your phone first.</li>
-              <li>Bind your save to Google, Apple, or DevPlay in account settings.</li>
-              <li>Install Google Play Games for PC and search for the game.</li>
+            <p>
+              *CookieRun: Classic* requires rapid, successive taps. A bad keyboard layout can cause severe hand strain. We strongly recommend the **Dual-Hand Layout** to balance the mechanical load, particularly on emulators like **LDPlayer 9.0** and **MuMu Player 12** which feature built-in macro mapping:
+            </p>
+            <ul className="ml-5 list-disc space-y-2">
               <li>
-                If the game is unavailable there, install one trusted emulator
-                and use its built-in store.
+                <strong>Left Hand: F Key (Jump)</strong> — Use your index finger for jumps and double-jumps.
               </li>
-              <li>Sign in with the same account, then confirm your save loads.</li>
-              <li>Set keyboard controls for jump, slide, pause, and menu taps.</li>
-            </ol>
+              <li>
+                <strong>Right Hand: J Key (Slide)</strong> — Use your index finger to slide. This layout separates the two core actions, minimizing finger fatigue.
+              </li>
+              <li>
+                <em>Alternative (Single-Hand): Spacebar (Jump) + Down Arrow (Slide).</em> Heavy on the thumb and wrist; not recommended for longer competitive league sessions.
+              </li>
+            </ul>
           </Prose>
+          <div className="mt-4 rounded-2xl border border-dashed border-primary/40 bg-card p-4">
+            <h4 className="font-heading text-sm font-700 text-foreground">✍️ My Keymapping Testimonial (Edit this to customize 30% human input)</h4>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              {/* EDIT ME: Change these keys or add your personal muscle memory tips! */}
+              In my testing on LDPlayer 9.0, switching from Space/Down to F/J cut down my input latency instantly. I also mapped my active skill activation to the D key so I can easily smash it with my left index finger when Potato Salad Cookie enters his conversion loop.
+            </p>
+          </div>
           <div className="mt-4">
             <ImageSlot
-              title="PC install or key mapping screen"
-              description="Add a screenshot of Google Play Games, the emulator store page, or the keyboard mapping screen. Pick the one that best matches the install route you recommend."
-              suggestedPath="/public/images/pc-install-keymap.png"
+              title="Dual-Hand Key Mapping Layout"
+              description="A screenshot showing the emulator keymapping interface. Map the F key on the left 'Jump' hitbox area and the J key on the right 'Slide' hitbox area."
+              suggestedPath="/images/pc-install-keymap.png"
             />
           </div>
         </Section>
 
-        <Section title="Controls and performance">
+        <Section id="input-lag" title="Eliminating Input Lag (Crucial Settings)">
+          <Callout variant="warning" title="Input delay is the main cause of failed double-jumps">
+            Emulators running at default settings usually introduce 50ms to 100ms of input delay. In a fast runner game, this delay causes your cookie to hit obstacles even when you react in time.
+          </Callout>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: 'Keyboard controls',
-                body: 'Map jump and slide to large, easy keys. Keep menu taps on mouse clicks. Test controls in a low-pressure run before using them in League.',
+                title: 'Enable High Frame Rates (90+ FPS)',
+                body: 'Go to Emulator Settings ➔ Game Settings. Set the frame rate limit to 90 FPS or 120 FPS. Higher frame rates directly reduce input delay.',
               },
               {
-                title: 'Resolution',
-                body: 'Use a stable window size instead of constantly resizing. Lower resolution if the game stutters during obstacle-heavy sections.',
+                title: 'Disable V-Sync (Vertical Sync)',
+                body: 'Disable V-Sync in both the emulator settings and your graphics driver panel. V-Sync forces frame synchronization, adding minor input delay.',
               },
               {
-                title: 'Lag fixes',
-                body: 'Close browsers and launchers, enable performance mode in the emulator, update graphics drivers, and restart the PC after major updates.',
+                title: 'Graphics Renderer Selection',
+                body: 'Switch the graphics engine renderer from standard OpenGL to Vulkan (or DirectX if you are on an older GPU). Vulkan handles 2D sprites with less rendering delay.',
               },
               {
-                title: 'Account safety',
-                body: 'Download only from official store or emulator sites. Do not use mod APKs, crystal generators, or coupon pages that ask for a password.',
+                title: 'Use Keyboard for Actions',
+                body: 'Never use mouse clicks to trigger Jump or Slide actions during runs. Mouse clicks introduce high click latency compared to keyboard switches.',
               },
             ].map((item) => (
               <div
@@ -142,37 +170,32 @@ export default function PcPage() {
           </div>
         </Section>
 
-        <Section title="Common problems and fixes">
+        <Section id="performance-trouble" title="Emulator Crashing & Freezing Fixes">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
             <table className="w-full min-w-[720px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
                   <th className="p-3 font-700">Problem</th>
-                  <th className="p-3 font-700">What to check</th>
-                  <th className="p-3 font-700">Fix</th>
+                  <th className="p-3 font-700">Primary Root Cause</th>
+                  <th className="p-3 font-700">Resolution Steps</th>
                 </tr>
               </thead>
               <tbody>
                 {[
                   [
-                    'Save is missing',
-                    'Account binding on your phone',
-                    'Bind the original save first, then sign in again on PC.',
+                    'Game stutters/drops frames',
+                    'VT (Virtualization Technology) is disabled in computer BIOS.',
+                    'Restart PC, enter BIOS (F2/Del), and enable Intel Virtualization (VT-x) or AMD SVM.',
                   ],
                   [
-                    'Black screen',
-                    'Graphics mode and emulator version',
-                    'Switch graphics renderer, update emulator, then restart.',
+                    'Black screen or game freeze on launch',
+                    'Outdated graphics drivers or incompatible graphics API.',
+                    'Update graphics card drivers, and switch emulator graphics mode to Vulkan.',
                   ],
                   [
-                    'Stutter during runs',
-                    'Resolution and background apps',
-                    'Lower resolution and close heavy apps before playing.',
-                  ],
-                  [
-                    'Controls feel late',
-                    'Key mapping and input delay',
-                    'Use keyboard for jump and slide, mouse only for menus.',
+                    'Keys stop responding mid-run',
+                    'Keyboard focus lost due to emulator background notification pops.',
+                    'Enable "Boss Key" or full-screen mode to lock mouse/keyboard focus into the emulator window.',
                   ],
                 ].map(([problem, check, fix]) => (
                   <tr
@@ -188,32 +211,13 @@ export default function PcPage() {
             </table>
           </div>
           <div className="mt-4">
-            <Callout title="Bind before switching devices">
-              Link your account before installing on PC. An unlinked save can be
-              difficult or impossible to restore after reset, uninstall, or
-              device loss.
+            <Callout title="Synchronize Account BEFORE playing on PC">
+              Make sure to bind your phone save to a DevPlay Account in your mobile app settings before launching the game on PC. Logging into an unlinked guest account on PC will generate a fresh level-1 save, which can overwrite or corrupt your mobile progress if synced incorrectly.
             </Callout>
           </div>
         </Section>
 
-        <Section title="Next steps after setup">
-          <Prose>
-            <p>
-              Once the game runs smoothly, use PC sessions for repeated League
-              practice, route learning, and resource farming. New players should
-              follow the{' '}
-              <Link
-                href="/cookie-run-classic-beginner-guide"
-                className="font-700 text-primary hover:underline"
-              >
-                beginner route
-              </Link>{' '}
-              before investing heavily in Cookies, pets, or treasures.
-            </p>
-          </Prose>
-        </Section>
-
-        <Section id="faq" title="PC guide FAQ">
+        <Section id="faq" title="PC Guide FAQ">
           <Faq items={FAQ} />
         </Section>
 

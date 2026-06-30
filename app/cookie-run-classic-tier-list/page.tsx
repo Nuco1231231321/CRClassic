@@ -89,44 +89,70 @@ export default function TierListPage() {
           </div>
         </Section>
 
-        <Section title="Best first upgrades">
+        <Section id="best-upgrades" title="Detailed S & A Tier Cookie Analysis">
           <Prose>
             <p>
-              Your first upgrade target should solve one job: clearing missions,
-              reaching Bonus Time, or improving League score. Pick one main
-              Cookie and keep it ahead of the rest of your roster until your run
-              starts losing because of pets, treasures, or control mistakes
-              instead of Cookie level.
-            </p>
-            <p>
-              For most new accounts, the safest route is a stable runner first,
-              then a score-focused Cookie after you have enough pet and treasure
-              support. Do not drain coins into every unlock just to test them.
+              In *CookieRun: Classic*, character viability depends on two main criteria: raw scoring potential and resource generation capabilities. Leveling up characters yields stat points, but their active skills define their place in the meta:
             </p>
           </Prose>
+
+          <div className="mt-6 space-y-6">
+            {[
+              {
+                name: 'Princess Bari Cookie (Tier S — Sustain & Score Master)',
+                desc: 'Bari gathers Flower Jellies to charge her sacred meter. When filled, she summons a Sacred Tree that cleanses all obstacles, granting high-value Spirit Jellies. Her primary appeal is her built-in self-revival, which provides beginners and league runners with an immense safety net. Pair with Golden Cheesebird.',
+              },
+              {
+                name: 'Lotus Root Phantom Cookie (Tier S — Apex Score Ceiling)',
+                desc: 'Designed for endgame scoring. Lotus Root Phantom produces high-scoring lotus notes that require active collection. While she has no survival traits, her raw point generation during active skill phases is unmatched. Best paired with Lotus Sitter.',
+              },
+              {
+                name: 'Potato Salad Cookie (Tier S — Premier Gold Farmer)',
+                desc: 'Periodically enters a cooking state, converting all standard jellies on the screen into high-value Gold Potato Jellies and coins. Essential for funding account-wide Energy upgrades. Best paired with Mr. Limeguard.',
+              },
+              {
+                name: 'Pine Monk Cookie (Tier A — Obstacle Destroyer)',
+                desc: 'Periodically swings his staff to launch a wind slash, neutralizing all incoming obstacles and providing a minor speed boost. Ideal for Story Mode and Tower of Frozen Waves quests where obstacle collision is the primary failure condition.',
+              },
+              {
+                name: 'Buttercream Choco Cookie (Tier A — Relay Multiplier)',
+                desc: 'Provides a massive flat percentage multiplier (up to 25% at max level) to your total gold earned, but ONLY when placed in the Relay (second runner) slot. Do not upgrade him early unless your primary Potato Salad Cookie is already leveled.',
+              },
+            ].map((cookie) => (
+              <div key={cookie.name} className="rounded-2xl border-2 border-border bg-card p-5">
+                <h3 className="font-heading text-lg font-700 text-foreground mb-2">
+                  {cookie.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {cookie.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-4">
             <ImageSlot
-              title="Cookie roster or upgrade screen"
-              description="Add a screenshot that shows the Cookie list, selected Cookie details, or the upgrade button so readers can connect this section to the in-game menu."
-              suggestedPath="/public/images/cookie-tier-roster.png"
+              title="Cookie Roster & Upgrades"
+              description="A screenshot of the Cookie selection screen. Focus on the S-tier characters and show the upgrade level cost."
+              suggestedPath="/images/cookie-tier-roster.png"
             />
           </div>
         </Section>
 
-        <Section title="Pick by account goal">
+        <Section id="goals" title="Choosing by Progression Stage">
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
-                title: 'Early missions',
-                body: 'Choose a Cookie that survives comfortably and helps you clear episode tasks. Consistent distance beats flashy scoring while your account is new.',
+                title: '1. Day 1 Economy',
+                body: 'Prioritize Potato Salad Cookie. Leveling him to level 5 is much more valuable than pulling duplicate treasures on Day 1, as it unlocks stable coin income.',
               },
               {
-                title: 'League score',
-                body: 'Choose a Cookie with strong point generation only after you can support it with a matching pet and score treasures.',
+                title: '2. Quest Clearance',
+                body: 'Switch to Princess Bari Cookie or Pine Monk Cookie. Their skills neutralize obstacles, ensuring you clear the required distance without dying.',
               },
               {
-                title: 'Coin farming',
-                body: 'Use coin-friendly options when you need upgrade money, but stop treating them as your main score setup once League progress slows.',
+                title: '3. League Scoring',
+                body: 'Max out Lotus Root Phantom Cookie. She is extremely vulnerable to collisions, so only run her once you have memorized the league track layout.',
               },
             ].map((item) => (
               <div
@@ -144,56 +170,13 @@ export default function TierListPage() {
           </div>
         </Section>
 
-        <Section title="When to stop upgrading">
-          <Callout title="Use this before spending coins">
-            Upgrade only when the next level helps your current route. Pause if
-            the Cookie is a backup, if you still lack a matching pet, or if the
-            same resources would unlock a stronger treasure setup.
+        <Section id="upgrade-traps" title="Cookie Upgrade Pitfalls to Avoid">
+          <Callout variant="warning" title="Spreading gold across your roster slows progress">
+            Gold upgrade costs increase exponentially. Upgrading five different cookies to level 5 is far less efficient than maxing out one S-tier main runner. Focus your gold on **Base Energy first**, and then pour all character gold into Potato Salad (for farming) or Princess Bari (for scoring/quests).
           </Callout>
-          <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Stop when the Cookie is not part of your main three-run plan.</li>
-              <li>Stop when your run fails from missed jumps, not low stats.</li>
-              <li>
-                Stop when your treasures are underleveled and give more value
-                per resource.
-              </li>
-              <li>
-                Continue when a level directly improves your best League route.
-              </li>
-            </ul>
-          </Prose>
         </Section>
 
-        <Section title="Common upgrade mistakes">
-          <Prose>
-            <ul className="ml-5 list-disc space-y-1">
-              <li>Leveling every new Cookie equally and running out of coins.</li>
-              <li>Ignoring pets, then blaming the Cookie for low score.</li>
-              <li>Using a score Cookie for missions that need survival.</li>
-              <li>Changing your main setup before learning the route.</li>
-            </ul>
-            <p>
-              After choosing a Cookie, check the{' '}
-              <Link
-                href="/cookie-run-classic-pet-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                pet priority guide
-              </Link>{' '}
-              and{' '}
-              <Link
-                href="/cookie-run-classic-treasure-tier-list"
-                className="font-700 text-primary hover:underline"
-              >
-                treasure guide
-              </Link>{' '}
-              before spending rare upgrade items.
-            </p>
-          </Prose>
-        </Section>
-
-        <Section id="faq" title="Cookie tier list FAQ">
+        <Section id="faq" title="Cookie Tier List FAQ">
           <Faq items={FAQ} />
         </Section>
 
