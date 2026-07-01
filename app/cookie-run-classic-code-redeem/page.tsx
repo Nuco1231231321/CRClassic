@@ -5,7 +5,7 @@ import { CODES_LAST_CHECKED } from '@/lib/data'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -16,7 +16,9 @@ import {
 const OFFICIAL_COUPON_URL = 'https://coupon.devplay.com/coupon/crg/en'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Code Redeem',
+  title: {
+    absolute: 'Cookie Run Classic Redeem Codes: DevPlay Guide',
+  },
   description:
     'How to redeem Cookie Run Classic codes with DevPlay Account and Coupon Code fields, plus Mail rewards, restart steps, and account safety checks.',
   alternates: { canonical: '/cookie-run-classic-code-redeem' },
@@ -120,15 +122,15 @@ export default function RedeemPage() {
             </ol>
           </Prose>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <ImageSlot
-              title="DevPlay ID Account Location"
-              description="A screenshot of the in-game Settings -> Game Info panel. Draw a bright red box around the 'DevPlay Account' copy button so players know exactly which string to copy."
-              suggestedPath="/images/redeem-devplay-account.png"
+            <ImageFigure
+              src="/images/redeem-devplay-account.webp"
+              alt="CookieRun Classic DevPlay Account field location"
+              caption="DevPlay Account location used for coupon redemption."
             />
-            <ImageSlot
-              title="Official Web Coupon Portal"
-              description="A screenshot of coupon.devplay.com. Show the DevPlay Account input box and Coupon Code input box populated with valid values."
-              suggestedPath="/images/redeem-coupon-code.png"
+            <ImageFigure
+              src="/images/redeem-coupon-code.webp"
+              alt="CookieRun Classic official coupon code portal"
+              caption="Official coupon portal fields for DevPlay Account and Coupon Code."
             />
           </div>
         </Section>
@@ -238,10 +240,10 @@ export default function RedeemPage() {
             </table>
           </div>
           <div className="mt-4">
-            <ImageSlot
-              title="Mailbox Reward Claim Window"
-              description="A screenshot of the in-game mailbox showing the arrived coupon package containing free coins and crystals."
-              suggestedPath="/images/redeem-mail-reward.png"
+            <ImageFigure
+              src="/images/redeem-mail-reward.webp"
+              alt="CookieRun Classic in-game Mail reward claim screen"
+              caption="Mail reward screen where redeemed coupon rewards can be claimed."
             />
           </div>
         </Section>

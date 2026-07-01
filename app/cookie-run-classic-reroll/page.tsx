@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -13,7 +13,9 @@ import {
 import { SITE } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Reroll Guide',
+  title: {
+    absolute: 'Cookie Run Classic Reroll Guide: Keep or Reset',
+  },
   description:
     'Decide whether rerolling is worth it in Cookie Run Classic, what makes a keeper account, and what to do after keeping your first account.',
   alternates: { canonical: '/cookie-run-classic-reroll' },
@@ -139,10 +141,10 @@ export default function RerollPage() {
             </ol>
           </Prose>
           <div className="mt-4">
-            <ImageSlot
-              title="Settings Account Deletion Button"
-              description="A screenshot of the Settings -> Game Info menu. Highlight the location of the 'Delete Account' button used to quickly reset guest saves."
-              suggestedPath="/images/reroll-keeper-account.png"
+            <ImageFigure
+              src="/images/reroll-keeper-account.webp"
+              alt="CookieRun Classic account reset and keeper account screen"
+              caption="Account reset and keeper account screen for reroll decisions."
             />
           </div>
         </Section>

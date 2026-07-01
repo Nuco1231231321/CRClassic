@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import {
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -13,7 +13,9 @@ import {
 import { PRIMARY_NAV, SITE } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Wiki Hub',
+  title: {
+    absolute: 'Cookie Run Classic Wiki Hub: Guides & Tools',
+  },
   description:
     'Cookie Run Classic wiki hub for codes, redeem steps, beginner routes, tier lists, pets, treasures, PC setup, reroll, and meta priorities.',
   alternates: { canonical: '/cookie-run-classic-wiki' },
@@ -111,10 +113,10 @@ export default function WikiHubPage() {
             </p>
           </Prose>
           <div className="mt-4">
-            <ImageSlot
-              title="Game Lobby Home Screen"
-              description="A screenshot of the main lobby interface after login. This should display the main menu, League ranking button, and start run button to represent the hub visual."
-              suggestedPath="/images/wiki-hub-overview.png"
+            <ImageFigure
+              src="/images/wiki-hub-overview.webp"
+              alt="CookieRun Classic wiki hub overview screen"
+              caption="Overview image for the CookieRun Classic guide hub."
             />
           </div>
         </Section>

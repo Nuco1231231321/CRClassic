@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fredoka, Nunito, Geist_Mono } from 'next/font/google'
+import Script from 'next/script'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
@@ -23,13 +24,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://crclassic.wiki'),
   title: {
-    default:
-      'CookieRun Classic Wiki: Codes, Tier Lists, Pets, Treasures & PC Guide',
-    template: '%s | CRClassic.wiki',
+    default: 'CookieRun Classic Wiki: Codes & Guides',
+    template: '%s',
   },
   description:
     'Find CookieRun Classic codes, tier lists, pet rankings, treasure rankings, PC play guides, and redeem steps in one place. Updated regularly by players.',
   applicationName: 'CRClassic.wiki',
+  verification: {
+    google: 'UwFuzsDZDzFQRQ0n5w6TUqQMR7uQNFzBnOKJVEz5HUM',
+  },
   keywords: [
     'CookieRun Classic',
     'Cookie Run Classic codes',
@@ -80,6 +83,18 @@ export default function RootLayout({
       className={`${fredoka.variable} ${nunito.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LWRVHBNZQG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LWRVHBNZQG');
+          `}
+        </Script>
         <SiteHeader />
         {children}
         <SiteFooter />

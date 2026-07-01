@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -14,7 +14,9 @@ import {
 import { PET_TIER_UPDATED, PET_TIERS } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Pet Tier List',
+  title: {
+    absolute: 'Cookie Run Classic Pet Tier List: Pairings & Upgrades',
+  },
   description:
     'Best Cookie Run Classic pets to build first, with pairing rules, beginner value, score value, and upgrade mistakes to avoid.',
   alternates: { canonical: '/cookie-run-classic-pet-tier-list' },
@@ -129,10 +131,10 @@ export default function PetTierListPage() {
           </div>
 
           <div className="mt-4">
-            <ImageSlot
-              title="Pet Inventory & Pairings"
-              description="A screenshot of the Pet collection screen. Highlight the pairing indicators that show whether a Pet is matched with its optimal Cookie runner."
-              suggestedPath="/images/pet-tier-roster.png"
+            <ImageFigure
+              src="/images/pet-tier-roster.webp"
+              alt="CookieRun Classic pet inventory and pairing screen"
+              caption="Pet inventory and pairing screen for checking support value before upgrading."
             />
           </div>
         </Section>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -12,7 +12,9 @@ import {
 import { SITE } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Meta',
+  title: {
+    absolute: 'Cookie Run Classic Meta: Builds & Priorities',
+  },
   description:
     'Current Cookie Run Classic account priorities for new players, score runs, Power+, rewards, upgrades, PC play, and route checks.',
   alternates: { canonical: '/cookie-run-classic-meta' },
@@ -175,10 +177,10 @@ export default function MetaPage() {
           </div>
 
           <div className="mt-4">
-            <ImageSlot
-              title="Meta Lobby & Loadout Config"
-              description="A screenshot of the lobby interface showing a fully configured meta loadout (Potato Salad + Buttercream Choco + Sold-Out Bread + Lucky Coin Pouch) ready for a run."
-              suggestedPath="/images/meta-current-priority.png"
+            <ImageFigure
+              src="/images/meta-current-priority.webp"
+              alt="CookieRun Classic lobby and loadout configuration screen"
+              caption="Lobby and loadout screen for checking current account priorities."
             />
           </div>
         </Section>

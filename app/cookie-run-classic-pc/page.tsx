@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -13,7 +13,9 @@ import {
 import { PC_OPTIONS, PC_TIERS_UPDATED } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic PC Guide',
+  title: {
+    absolute: 'Cookie Run Classic PC Guide: Setup & Key Mapping',
+  },
   description:
     'How to play Cookie Run Classic on PC with Google Play Games or Android emulators, plus account sync, controls, lag, crash, and safe download tips.',
   alternates: { canonical: '/cookie-run-classic-pc' },
@@ -124,10 +126,10 @@ export default function PcPage() {
             </p>
           </div>
           <div className="mt-4">
-            <ImageSlot
-              title="Dual-Hand Key Mapping Layout"
-              description="A screenshot showing the emulator keymapping interface. Map the F key on the left 'Jump' hitbox area and the J key on the right 'Slide' hitbox area."
-              suggestedPath="/images/pc-install-keymap.png"
+            <ImageFigure
+              src="/images/pc-install-keymap.webp"
+              alt="CookieRun Classic PC key mapping layout"
+              caption="PC key mapping layout for jump, slide, and skill controls."
             />
           </div>
         </Section>

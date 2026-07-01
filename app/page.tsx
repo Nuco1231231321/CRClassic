@@ -25,7 +25,9 @@ import {
 import { Faq } from '@/components/blocks'
 
 export const metadata: Metadata = {
-  title: 'CookieRun Classic Wiki',
+  title: {
+    absolute: 'CookieRun Classic Wiki: Codes, Tiers & Beginner Guides',
+  },
   description:
     'Codes, redeem steps, beginner route, PC setup, tier lists, pet rankings, treasure rankings, and upgrade priorities for CookieRun Classic.',
   alternates: { canonical: '/' },

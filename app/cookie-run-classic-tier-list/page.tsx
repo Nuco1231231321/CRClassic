@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -14,7 +14,9 @@ import {
 import { COOKIE_TIER_UPDATED, COOKIE_TIERS } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Tier List',
+  title: {
+    absolute: 'Cookie Run Classic Tier List: Cookie Rankings',
+  },
   description:
     'Cookie Run Classic Cookie upgrade priorities for beginners, score runs, coin farming, and long-term account planning.',
   alternates: { canonical: '/cookie-run-classic-tier-list' },
@@ -131,10 +133,10 @@ export default function TierListPage() {
           </div>
 
           <div className="mt-4">
-            <ImageSlot
-              title="Cookie Roster & Upgrades"
-              description="A screenshot of the Cookie selection screen. Focus on the S-tier characters and show the upgrade level cost."
-              suggestedPath="/images/cookie-tier-roster.png"
+            <ImageFigure
+              src="/images/cookie-tier-roster.webp"
+              alt="CookieRun Classic Cookie roster and upgrade screen"
+              caption="Cookie roster and upgrade screen used to compare early upgrade priorities."
             />
           </div>
         </Section>

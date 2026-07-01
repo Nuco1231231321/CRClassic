@@ -21,7 +21,9 @@ import {
 import { CopyCode } from '@/components/copy-code'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Codes',
+  title: {
+    absolute: 'Cookie Run Classic Codes: Active Rewards & Free Crystals',
+  },
   description:
     'Active Cookie Run Classic codes, rewards, redeem steps, and expired code history. Updated and re-checked regularly.',
   alternates: { canonical: '/cookie-run-classic-codes' },

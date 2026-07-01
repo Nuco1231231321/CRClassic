@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -14,7 +14,9 @@ import {
 import { TREASURE_TIER_UPDATED, TREASURE_TIERS } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Treasure Tier List',
+  title: {
+    absolute: 'Cookie Run Classic Treasure Tier List: Upgrade Priority',
+  },
   description:
     'Cookie Run Classic treasure upgrade priorities, spending checks, score treasures, survival treasures, and mistakes to avoid.',
   alternates: { canonical: '/cookie-run-classic-treasure-tier-list' },
@@ -131,10 +133,10 @@ export default function TreasureTierListPage() {
           </div>
 
           <div className="mt-4">
-            <ImageSlot
-              title="Treasure Deck & Upgrades"
-              description="A screenshot of the Treasure inventory. Highlight the three equipped card slots and showing the upgrade button and Supreme ticket cost."
-              suggestedPath="/images/treasure-upgrade-check.png"
+            <ImageFigure
+              src="/images/treasure-upgrade-check.webp"
+              alt="CookieRun Classic treasure inventory and upgrade screen"
+              caption="Treasure inventory and upgrade screen for checking equipped slots before spending rare items."
             />
           </div>
         </Section>

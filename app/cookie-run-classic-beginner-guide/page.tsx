@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   Callout,
   Faq,
-  ImageSlot,
+  ImageFigure,
   PageBody,
   PageHero,
   Prose,
@@ -13,7 +13,9 @@ import {
 import { SITE } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Cookie Run Classic Beginner Guide',
+  title: {
+    absolute: 'Cookie Run Classic Beginner Guide: First Week Route',
+  },
   description:
     'A first-day and first-week Cookie Run Classic route for missions, coins, Power+, account binding, upgrades, pets, treasures, and daily checks.',
   alternates: { canonical: '/cookie-run-classic-beginner-guide' },
@@ -150,10 +152,10 @@ export default function BeginnerGuidePage() {
             Always focus your upgrades on your main runner to survive the entire distance without needing a relay!
           </Callout>
           <div className="mt-4">
-            <ImageSlot
-              title="Episode Quests & Missions Screen"
-              description="Screenshot of the Episode Quests sidebar. Highlight the active quest requirements and show that progress must be completed before the main runner dies."
-              suggestedPath="/images/beginner-first-mission.png"
+            <ImageFigure
+              src="/images/beginner-first-mission.webp"
+              alt="CookieRun Classic beginner episode quests and missions screen"
+              caption="Episode quests and missions screen for checking early account progress."
             />
           </div>
         </Section>
