@@ -23,15 +23,17 @@ import {
   SITE,
 } from '@/lib/data'
 import { Faq } from '@/components/blocks'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'CookieRun Classic Wiki: Codes, Tiers & Beginner Guides',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'CookieRun Classic Wiki: Codes, Tiers & Beginner Guides',
   description:
     'Codes, redeem steps, beginner route, PC setup, tier lists, pet rankings, treasure rankings, and upgrade priorities for CookieRun Classic.',
-  alternates: { canonical: '/' },
-}
+  path: '/',
+  image: '/images/hero.png',
+  imageAlt: 'CookieRun Classic Wiki guide hub preview',
+  type: 'website',
+})
 
 const ICONS = [
   Gift,

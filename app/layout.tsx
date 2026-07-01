@@ -42,6 +42,17 @@ export const metadata: Metadata = {
     'Cookie Run Classic PC',
   ],
   generator: 'v0.app',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     type: 'website',
     siteName: 'CRClassic.wiki',
@@ -50,15 +61,25 @@ export const metadata: Metadata = {
     description:
       'Codes, tier lists, pet and treasure rankings, PC play guides, and redeem steps for CookieRun Classic.',
     url: 'https://crclassic.wiki',
+    images: [
+      {
+        url: '/images/hero.png',
+        width: 1024,
+        height: 1024,
+        alt: 'CookieRun Classic Wiki guide hub preview',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CookieRun Classic Wiki',
     description:
       'Codes, tier lists, pets, treasures, and PC guides for CookieRun Classic.',
+    images: ['/images/hero.png'],
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
       { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
       { url: '/icon.svg', type: 'image/svg+xml' },

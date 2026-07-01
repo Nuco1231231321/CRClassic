@@ -11,15 +11,16 @@ import {
   Section,
 } from '@/components/blocks'
 import { PC_OPTIONS, PC_TIERS_UPDATED } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic PC Guide: Setup & Key Mapping',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic PC Guide: Setup & Key Mapping',
   description:
     'How to play Cookie Run Classic on PC with Google Play Games or Android emulators, plus account sync, controls, lag, crash, and safe download tips.',
-  alternates: { canonical: '/cookie-run-classic-pc' },
-}
+  path: '/cookie-run-classic-pc',
+  image: '/images/pc-install-keymap.webp',
+  imageAlt: 'Cookie Run Classic PC install and keyboard mapping preview',
+})
 
 const FAQ = [
   {

@@ -10,15 +10,16 @@ import {
   Section,
 } from '@/components/blocks'
 import { SITE } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Meta: Builds & Priorities',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Meta: Builds & Priorities',
   description:
     'Current Cookie Run Classic account priorities for new players, score runs, Power+, rewards, upgrades, PC play, and route checks.',
-  alternates: { canonical: '/cookie-run-classic-meta' },
-}
+  path: '/cookie-run-classic-meta',
+  image: '/images/meta-current-priority.webp',
+  imageAlt: 'Cookie Run Classic current meta priorities preview',
+})
 
 const UPDATED = SITE.lastSiteUpdate
 

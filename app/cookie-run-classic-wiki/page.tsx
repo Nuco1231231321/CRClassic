@@ -11,15 +11,16 @@ import {
   Section,
 } from '@/components/blocks'
 import { PRIMARY_NAV, SITE } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Wiki Hub: Guides & Tools',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Wiki Hub: Guides & Tools',
   description:
     'Cookie Run Classic wiki hub for codes, redeem steps, beginner routes, tier lists, pets, treasures, PC setup, reroll, and meta priorities.',
-  alternates: { canonical: '/cookie-run-classic-wiki' },
-}
+  path: '/cookie-run-classic-wiki',
+  image: '/images/wiki-hub-overview.webp',
+  imageAlt: 'Cookie Run Classic wiki hub overview preview',
+})
 
 const UPDATED = SITE.lastSiteUpdate
 

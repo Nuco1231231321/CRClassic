@@ -19,15 +19,16 @@ import {
   UpdateBadge,
 } from '@/components/blocks'
 import { CopyCode } from '@/components/copy-code'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Codes: Active Rewards & Free Crystals',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Codes: Active Rewards & Free Crystals',
   description:
     'Active Cookie Run Classic codes, rewards, redeem steps, and expired code history. Updated and re-checked regularly.',
-  alternates: { canonical: '/cookie-run-classic-codes' },
-}
+  path: '/cookie-run-classic-codes',
+  image: '/images/codes.png',
+  imageAlt: 'Cookie Run Classic codes and rewards preview',
+})
 
 const FAQ = [
   {

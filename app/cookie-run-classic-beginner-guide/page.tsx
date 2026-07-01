@@ -11,15 +11,16 @@ import {
   Section,
 } from '@/components/blocks'
 import { SITE } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Beginner Guide: First Week Route',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Beginner Guide: First Week Route',
   description:
     'A first-day and first-week Cookie Run Classic route for missions, coins, Power+, account binding, upgrades, pets, treasures, and daily checks.',
-  alternates: { canonical: '/cookie-run-classic-beginner-guide' },
-}
+  path: '/cookie-run-classic-beginner-guide',
+  image: '/images/beginner-first-mission.webp',
+  imageAlt: 'Cookie Run Classic beginner mission route preview',
+})
 
 const UPDATED = SITE.lastSiteUpdate
 

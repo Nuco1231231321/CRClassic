@@ -11,15 +11,16 @@ import {
   Section,
 } from '@/components/blocks'
 import { SITE } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Reroll Guide: Keep or Reset',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Reroll Guide: Keep or Reset',
   description:
     'Decide whether rerolling is worth it in Cookie Run Classic, what makes a keeper account, and what to do after keeping your first account.',
-  alternates: { canonical: '/cookie-run-classic-reroll' },
-}
+  path: '/cookie-run-classic-reroll',
+  image: '/images/reroll-keeper-account.webp',
+  imageAlt: 'Cookie Run Classic reroll keeper account checklist preview',
+})
 
 const UPDATED = SITE.lastSiteUpdate
 

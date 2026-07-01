@@ -12,15 +12,16 @@ import {
   TierPill,
 } from '@/components/blocks'
 import { PET_TIER_UPDATED, PET_TIERS } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Pet Tier List: Pairings & Upgrades',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Pet Tier List: Pairings & Upgrades',
   description:
     'Best Cookie Run Classic pets to build first, with pairing rules, beginner value, score value, and upgrade mistakes to avoid.',
-  alternates: { canonical: '/cookie-run-classic-pet-tier-list' },
-}
+  path: '/cookie-run-classic-pet-tier-list',
+  image: '/images/pet-tier-roster.webp',
+  imageAlt: 'Cookie Run Classic pet roster and tier list preview',
+})
 
 const FAQ = [
   {

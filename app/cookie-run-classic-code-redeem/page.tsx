@@ -12,17 +12,18 @@ import {
   RelatedLinks,
   Section,
 } from '@/components/blocks'
+import { pageMetadata } from '@/lib/seo'
 
 const OFFICIAL_COUPON_URL = 'https://coupon.devplay.com/coupon/crg/en'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Redeem Codes: DevPlay Guide',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Redeem Codes: DevPlay Guide',
   description:
     'How to redeem Cookie Run Classic codes with DevPlay Account and Coupon Code fields, plus Mail rewards, restart steps, and account safety checks.',
-  alternates: { canonical: '/cookie-run-classic-code-redeem' },
-}
+  path: '/cookie-run-classic-code-redeem',
+  image: '/images/redeem-coupon-code.webp',
+  imageAlt: 'Cookie Run Classic coupon code redeem page preview',
+})
 
 const STEPS = [
   {

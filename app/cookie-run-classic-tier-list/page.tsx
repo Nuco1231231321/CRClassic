@@ -12,15 +12,16 @@ import {
   TierPill,
 } from '@/components/blocks'
 import { COOKIE_TIER_UPDATED, COOKIE_TIERS } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Tier List: Cookie Rankings',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Tier List: Cookie Rankings',
   description:
     'Cookie Run Classic Cookie upgrade priorities for beginners, score runs, coin farming, and long-term account planning.',
-  alternates: { canonical: '/cookie-run-classic-tier-list' },
-}
+  path: '/cookie-run-classic-tier-list',
+  image: '/images/cookie-tier-roster.webp',
+  imageAlt: 'Cookie Run Classic Cookie roster and tier list preview',
+})
 
 const FAQ = [
   {

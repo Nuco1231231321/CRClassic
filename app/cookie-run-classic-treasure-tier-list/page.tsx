@@ -12,15 +12,16 @@ import {
   TierPill,
 } from '@/components/blocks'
 import { TREASURE_TIER_UPDATED, TREASURE_TIERS } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Cookie Run Classic Treasure Tier List: Upgrade Priority',
-  },
+export const metadata: Metadata = pageMetadata({
+  title: 'Cookie Run Classic Treasure Tier List: Upgrade Priority',
   description:
     'Cookie Run Classic treasure upgrade priorities, spending checks, score treasures, survival treasures, and mistakes to avoid.',
-  alternates: { canonical: '/cookie-run-classic-treasure-tier-list' },
-}
+  path: '/cookie-run-classic-treasure-tier-list',
+  image: '/images/treasure-upgrade-check.webp',
+  imageAlt: 'Cookie Run Classic treasure upgrade checklist preview',
+})
 
 const FAQ = [
   {
