@@ -4,6 +4,8 @@ import { SITE } from '@/lib/data'
 const BASE_URL = `https://${SITE.domain}`
 const LAST_MODIFIED = new Date('2026-06-30T00:00:00+08:00')
 
+export const dynamic = 'force-static'
+
 const ROUTES = [
   { path: '/', priority: 1 },
   { path: '/cookie-run-classic-codes', priority: 0.8 },
