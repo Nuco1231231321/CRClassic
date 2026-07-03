@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Callout,
   Faq,
@@ -103,7 +102,7 @@ export default function TierListPage() {
             {[
               {
                 name: 'Princess Bari Cookie (Tier S — Sustain & Score Master)',
-                desc: 'Bari gathers Flower Jellies to charge her sacred meter. When filled, she summons a Sacred Tree that cleanses all obstacles, granting high-value Spirit Jellies. Her primary appeal is her built-in self-revival, which provides beginners and league runners with an immense safety net. Pair with Golden Cheesebird.',
+                desc: 'Bari gathers Flower Jellies to charge her sacred meter. When filled, she summons a Sacred Tree that cleanses all obstacles and grants high-value Spirit Jellies. Her built-in self-revival gives beginners and League runners a safety net that no other cookie matches.',
               },
               {
                 name: 'Lotus Root Phantom Cookie (Tier S — Apex Score Ceiling)',
@@ -112,10 +111,6 @@ export default function TierListPage() {
               {
                 name: 'Potato Salad Cookie (Tier S — Premier Gold Farmer)',
                 desc: 'Periodically enters a cooking state, converting all standard jellies on the screen into high-value Gold Potato Jellies and coins. Essential for funding account-wide Energy upgrades. Best paired with Mr. Limeguard.',
-              },
-              {
-                name: 'Pine Monk Cookie (Tier A — Obstacle Destroyer)',
-                desc: 'Periodically swings his staff to launch a wind slash, neutralizing all incoming obstacles and providing a minor speed boost. Ideal for Story Mode and Tower of Frozen Waves quests where obstacle collision is the primary failure condition.',
               },
               {
                 name: 'Buttercream Choco Cookie (Tier A — Relay Multiplier)',
@@ -151,7 +146,7 @@ export default function TierListPage() {
               },
               {
                 title: '2. Quest Clearance',
-                body: 'Switch to Princess Bari Cookie or Pine Monk Cookie. Their skills neutralize obstacles, ensuring you clear the required distance without dying.',
+                body: 'Switch to Princess Bari Cookie. Her self-revival keeps runs alive and ensures you clear the required distance without dying.',
               },
               {
                 title: '3. League Scoring',

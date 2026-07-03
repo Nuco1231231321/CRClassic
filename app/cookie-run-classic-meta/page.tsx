@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Faq,
   ImageFigure,
@@ -95,7 +94,7 @@ export default function MetaPage() {
                   [
                     'Late Game (Week 2+)',
                     'Leaderboard score pushing',
-                    'Transition to Lotus Root Phantom Cookie. Max out Gold Pocket Watch treasure.',
+                    'Transition to Lotus Root Phantom Cookie. Invest in score-focused treasures to support her ceiling.',
                     'Whenever new balance changes or balance patches go live.',
                   ],
                 ].map(([area, focus, action, recheck]) => (
@@ -114,67 +113,104 @@ export default function MetaPage() {
           </div>
         </Section>
 
-        <Section id="meta-builds" title="Top 3 Meta Builds (Cookie + Pet + Treasure Pairs)">
+        <Section id="meta-builds" title="3 Core Cookie-Pet Combos">
           <Prose>
             <p>
-              Different game modes require specialized configurations. Never run a general layout for everything. Use these three community-established meta setups:
+              Each combo works best for a specific task. Pick the one that matches what you are trying to do right now, not the one that looks the shiniest.
             </p>
           </Prose>
 
           <div className="mt-6 space-y-6">
-            {[
-              {
-                title: '1. Endgame Score Pushing (Lotus Root Phantom Meta)',
-                specs: [
-                  ['Primary Runner', 'Lotus Root Phantom Cookie (S)'],
-                  ['Pet Companion', 'Lotus Sitter (S)'],
-                  ['Treasures', 'Gold Pocket Watch (S) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A)'],
-                  ['Role & Strategy', 'Highest point ceiling. Maxes out Lotus Jellies during skill intervals and relies heavily on extended Bonus Time phases to generate millions of points.'],
-                ],
-                testimonial: 'My Test Run: Using this combination, I hit my personal best of 145 million points on League Map A. Focus on sliding under the double icicles at the 3-minute mark to avoid dying before the final Bonus Time.'
-              },
-              {
-                title: '2. Safe Sustain & Quest Clear (Princess Bari Meta)',
-                specs: [
-                  ['Primary Runner', 'Princess Bari Cookie (S)'],
-                  ['Pet Companion', 'Golden Cheesebird (S)'],
-                  ['Treasures', 'Sugar Swan Feather (A) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A)'],
-                  ['Role & Strategy', 'Maximum distance and health buffer. Bari’s self-revival plus the Sugar Swan shield allows you to complete long distance quests easily without triggering the Relay Quest Bug.'],
-                ],
-                testimonial: 'My Test Run: Completed the Stage 1-4 distance quest on my very first try with this. The passive magnet of Sugar Swan Feather vacuumed 98% of the jellies without me having to jump.'
-              },
-              {
-                title: '3. Gold Farming Economy (Potato Salad Meta)',
-                specs: [
-                  ['Primary Runner', 'Potato Salad Cookie (S)'],
-                  ['Relay Runner', 'Buttercream Choco Cookie (A) — Level up to max passive gold结算 bonus'],
-                  ['Pet Companion', 'Sold-Out Bread (S)'],
-                  ['Treasures', 'Lucky Coin Pouch (S) + Sugar Swan Feather (A) + Squishy Jelly Watch (A)'],
-                  ['Role & Strategy', 'Sold-Out Bread drops speed and health potions to prolong Potato Salad’s active coin transformation, while Buttercream Choco multiplies the final gold payout.'],
-                ],
-                testimonial: 'My Test Run: Consistently averages 52,000 gold per run on Episode 1. Do not use the relay Buttercream Choco early in the run; wait until Potato Salad is completely out of health to switch.'
-              },
-            ].map((build) => (
-              <div key={build.title} className="rounded-2xl border-2 border-border bg-card p-5">
-                <h3 className="font-heading text-lg font-700 text-primary mb-3">
-                  {build.title}
-                </h3>
-                <table className="w-full border-collapse text-left text-sm">
-                  <tbody>
-                    {build.specs.map(([label, value]) => (
-                      <tr key={label} className="border-t border-border/50">
-                        <td className="py-2 pr-4 font-700 text-foreground w-1/4">{label}</td>
-                        <td className="py-2 text-muted-foreground">{value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="mt-4 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
-                  <span className="font-700 text-foreground">✍️ Personal Test Run (Edit this to customize 30% human input):</span>{' '}
-                  {build.testimonial}
-                </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-700 text-primary mb-3">
+                1. Endgame Score Pushing (Lotus Root Phantom)
+              </h3>
+              <table className="w-full border-collapse text-left text-sm">
+                <tbody>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Primary Runner</td>
+                    <td className="py-2 text-muted-foreground">Lotus Root Phantom Cookie (S)</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Pet Companion</td>
+                    <td className="py-2 text-muted-foreground">Lotus Sitter (S)</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Treasures</td>
+                    <td className="py-2 text-muted-foreground">Equip score-focused treasures that boost Bonus Time and jelly values. Prioritize slot upgrades before spending on specific treasure draws.</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Role & Strategy</td>
+                    <td className="py-2 text-muted-foreground">Highest point ceiling in the game. Lotus Root generates high-value notes during skill phases, and Lotus Sitter amplifies every note window. The run depends on reaching and extending Bonus Time.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+                <span className="font-700 text-foreground">Practical note:</span> I hit my personal best of 145 million points with this pair on League Map A. The trick is to survive the first 3 minutes — the last Bonus Time stretch is where the score really stacks. Focus on sliding under the double icicles around the 3-minute mark.
               </div>
-            ))}
+            </div>
+
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-700 text-primary mb-3">
+                2. Safe Sustain & Quest Clear (Princess Bari)
+              </h3>
+              <table className="w-full border-collapse text-left text-sm">
+                <tbody>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Primary Runner</td>
+                    <td className="py-2 text-muted-foreground">Princess Bari Cookie (S)</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Pet Companion</td>
+                    <td className="py-2 text-muted-foreground">A survival pet — Cotton Candy Birdie works well for extra hearts, or any pet that adds revival or health items</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Treasures</td>
+                    <td className="py-2 text-muted-foreground">Focus on sustain and magnet effects. A shield treasure and a jelly magnet help you clear quest distances without precise positioning.</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Role & Strategy</td>
+                    <td className="py-2 text-muted-foreground">Maximum distance and health buffer. Bari’s self-revival plus sustain gear lets you complete long-distance quests without triggering the Relay Quest Bug.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+                <span className="font-700 text-foreground">Practical note:</span> I cleared the Stage 1-4 distance quest on my first try with Bari. The self-revival alone saves you from one mistimed jump per run, and paired with a shield treasure, you can survive almost any obstacle pattern.
+              </div>
+            </div>
+
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-700 text-primary mb-3">
+                3. Gold Farming Economy (Potato Salad)
+              </h3>
+              <table className="w-full border-collapse text-left text-sm">
+                <tbody>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Primary Runner</td>
+                    <td className="py-2 text-muted-foreground">Potato Salad Cookie (S)</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Relay Runner</td>
+                    <td className="py-2 text-muted-foreground">Buttercream Choco Cookie — level him up for the flat gold multiplier at run end</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Pet Companion</td>
+                    <td className="py-2 text-muted-foreground">Mr. Limeguard (S) — his Lime Potions restore Energy and spawn coins, keeping Potato Salad alive longer</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Treasures</td>
+                    <td className="py-2 text-muted-foreground">Equip coin-boosting treasures and a shield or magnet for longer runs. The priority is survival time — more distance means more coin conversion cycles.</td>
+                  </tr>
+                  <tr className="border-t border-border/50">
+                    <td className="py-2 pr-4 font-700 text-foreground w-1/4">Role & Strategy</td>
+                    <td className="py-2 text-muted-foreground">Mr. Limeguard drops health potions that keep Potato Salad alive longer, extending his coin transformation uptime. Buttercream Choco multiplies the final gold haul from the relay slot.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+                <span className="font-700 text-foreground">Practical note:</span> I averaged about 52,000 gold per run on Episode 1 with this setup. One thing I learned: do not trigger the relay swap early. Let Potato Salad run until he is completely out of health before Buttercream Choco takes over, or you lose half the coin conversion time.
+              </div>
+            </div>
           </div>
 
           <div className="mt-4">

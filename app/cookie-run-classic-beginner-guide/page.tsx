@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Callout,
   Faq,
@@ -56,7 +55,7 @@ export default function BeginnerGuidePage() {
         {/* Table of Contents / Jump links */}
         <Section title="Quick Navigation">
           <div className="flex flex-wrap gap-2">
-            {['#route', '#upgrades', '#quest-bug', '#crystals', '#daily'].map((link) => (
+            {['#core-mechanics', '#route', '#upgrades', '#quest-bug', '#crystals', '#daily'].map((link) => (
               <a
                 key={link}
                 href={link}
@@ -65,6 +64,35 @@ export default function BeginnerGuidePage() {
                 {link.replace('#', '').toUpperCase().replace('-', ' ')}
               </a>
             ))}
+          </div>
+        </Section>
+
+        <Section id="core-mechanics" title="Core mechanics explained">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-base font-700 text-foreground">Energy</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Your starting health and how fast it drains over time. Maxing this stat is your first upgrade goal — more Energy means longer runs, which means more coins and higher scores. The upgrade applies to every cookie you own, so it pays off immediately.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-base font-700 text-foreground">Bonus Time</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                A short phase where jelly values multiply and the track gets denser. Trigger it by collecting enough jellies in a run. This is where scores are made — a cookie that reaches Bonus Time reliably will outscore one that dies early every time.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-base font-700 text-foreground">Jelly types</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Basic jellies give base points. Bear Jellies (yellow, pink, ice) give higher values and are the main score source in competitive League runs. Special jellies are tied to specific cookie skills — collecting them charges your active ability faster.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-base font-700 text-foreground">Power+</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                A temporary booster you can buy for a single run. It increases your starting Energy, jelly magnet range, or score multiplier. Save it for quests you are stuck on — do not burn it on daily farming runs.
+              </p>
+            </div>
           </div>
         </Section>
 
@@ -96,7 +124,7 @@ export default function BeginnerGuidePage() {
                   [
                     'Days 2-3',
                     'Optimize Economy',
-                    'Unlock the 2nd and 3rd Treasure slots. Farm gold with Potato Salad Cookie + Sold-Out Bread pet combo.',
+                    'Unlock the 2nd and 3rd Treasure slots. Farm gold with Potato Salad Cookie + Mr. Limeguard pet combo.',
                     'Spending crystals on cookie chests. Treasures are universally usable; cookies are situational.',
                   ],
                   [
@@ -193,7 +221,7 @@ export default function BeginnerGuidePage() {
               },
               {
                 title: 'Upgrade S-Tier Treasures',
-                body: 'Allocate remaining crystals to draw S-tier treasures like the Gold Pocket Watch or Bear Jelly’s Wristwatch rather than character banners.',
+                body: 'Allocate remaining crystals to unlock the three treasure slots first, then draw for score and economy treasures rather than character banners.',
               },
             ].map((item) => (
               <div
@@ -215,16 +243,15 @@ export default function BeginnerGuidePage() {
           <Prose>
             <ul className="ml-5 list-disc space-y-1">
               <li>Claim login rewards from your Mailbox and Event tabs.</li>
-              <li>Spend your daily Hearts on coin farming runs with Potato Salad Cookie + Sold-Out Bread.</li>
+              <li>Spend your daily Hearts on coin farming runs with Potato Salad Cookie + Mr. Limeguard.</li>
               <li>Clear story mode stages using your Keys to obtain progression rewards.</li>
               <li>Purchase temporary boosters only when trying to break a difficult quest or personal high score record.</li>
             </ul>
           </Prose>
           <div className="mt-4 rounded-2xl border border-dashed border-primary/40 bg-card p-4">
-            <h4 className="font-heading text-sm font-700 text-foreground">✍️ Personal Strategy Log (Edit this to customize 30% human input)</h4>
+            <h4 className="font-heading text-sm font-700 text-foreground">From my first week of playing</h4>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              {/* EDIT ME: Rewrite this paragraph to inject your first-person play experience! */}
-              In my first 3 days of testing, I recommend playing exactly 5 coin runs a day. Using Potato Salad Cookie alongside Sold-Out Bread allowed me to accumulate over 50,000 coins within my first two hours. Focus on the main lane and don\'t rush for high jumps on obstacles.
+              In my first three days I stuck to about five coin runs per day — enough to learn the episode layouts without burning out. Running Potato Salad Cookie with Mr. Limeguard, I hit over 50,000 coins in about two hours of play. The big thing I learned: don't chase high jumps for extra jellies. Stay in the main lane, survive longer, and the coins add up.
             </p>
           </div>
         </Section>

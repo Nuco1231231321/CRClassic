@@ -113,6 +113,26 @@ export default function WikiHubPage() {
               and treasures.
             </p>
           </Prose>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-border bg-card p-4">
+              <h3 className="font-heading text-sm font-700 text-foreground">Core systems</h3>
+              <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+                <li><strong className="text-foreground">Energy</strong> — starting health. Max it first.</li>
+                <li><strong className="text-foreground">Bonus Time</strong> — score multiplier phase. Reach it every run.</li>
+                <li><strong className="text-foreground">Hearts / Keys</strong> — Hearts for normal runs, Keys for Tower of Frozen Waves.</li>
+                <li><strong className="text-foreground">Power+</strong> — one-run boosters for stuck quests.</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-4">
+              <h3 className="font-heading text-sm font-700 text-foreground">Quick links by task</h3>
+              <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+                <li>Need free crystals? → <Link href="/cookie-run-classic-codes" className="font-700 text-primary hover:underline">Codes</Link></li>
+                <li>First day setup? → <Link href="/cookie-run-classic-beginner-guide" className="font-700 text-primary hover:underline">Beginner Guide</Link></li>
+                <li>What to upgrade? → <Link href="/cookie-run-classic-tier-list" className="font-700 text-primary hover:underline">Tier List</Link></li>
+                <li>Play on PC? → <Link href="/cookie-run-classic-pc" className="font-700 text-primary hover:underline">PC Guide</Link></li>
+              </ul>
+            </div>
+          </div>
           <div className="mt-4">
             <ImageFigure
               src="/images/wiki-hub-overview.webp"

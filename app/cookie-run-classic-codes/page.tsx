@@ -192,7 +192,8 @@ export default function CodesPage() {
             </p>
             <ul className="ml-5 list-disc space-y-1">
               <li>In-game event notices and the news board</li>
-              <li>Official CookieRun social media accounts</li>
+              <li>Official <Link href="https://x.com/CRClassicEN" rel="nofollow noopener" target="_blank" className="font-700 text-primary hover:underline">X (Twitter)</Link> and <Link href="https://www.instagram.com/crclassic_en/" rel="nofollow noopener" target="_blank" className="font-700 text-primary hover:underline">Instagram</Link> accounts</li>
+              <li>Official <Link href="https://coupon.devplay.com/coupon/crg/en" rel="nofollow noopener" target="_blank" className="font-700 text-primary hover:underline">DevPlay coupon portal</Link></li>
               <li>Livestreams and milestone celebrations</li>
               <li>Update and maintenance announcements</li>
             </ul>

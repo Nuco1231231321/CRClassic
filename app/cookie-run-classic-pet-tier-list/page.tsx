@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Callout,
   Faq,
@@ -100,24 +99,16 @@ export default function PetTierListPage() {
           <div className="mt-6 space-y-6">
             {[
               {
-                name: 'Lotus Sitter (Tier S — Dedicated Score Synergy)',
-                desc: 'Generates specialized lotus petal Jellies at regular intervals and provides a brief speed boost to Lotus Root Phantom Cookie. This speed boost is crucial, as it allows Lotus Root to clear extra segments within a single skill charge window.',
-              },
-              {
-                name: 'Golden Cheesebird (Tier S — Apex Score Generalist)',
-                desc: 'The best all-round scoring pet. Periodically flies forward to drop high-density yellow cheese jellies. Since its skill functions independently of character type, it can be slotted into any scoring setup with great success.',
-              },
-              {
                 name: 'Mr. Limeguard (Tier S — Economy Multiplier)',
-                desc: 'The ultimate farming pet. Drops custom Lime Potions that restore a small chunk of Energy and spawn gold coins. When combined with Potato Salad Cookie, Mr. Limeguard extends the run duration to maximize coin transformation cycles.',
+                desc: 'Drops Lime Potions that restore a small chunk of Energy and spawn coins. Paired with Potato Salad Cookie, these potions keep the run going longer and let his coin conversion cycle fire more times.',
               },
               {
-                name: 'Glitter Pixel Flower (Tier A — Bonus Time Specialist)',
-                desc: 'Periodically drops letters or multipliers that accelerate the meter needed to enter Bonus Time. Excellent for layouts that rely on Gold Pocket Watch treasures.',
+                name: 'Lotus Sitter (Tier S — Dedicated Score Synergy)',
+                desc: 'Generates lotus petal Jellies at regular intervals and gives Lotus Root Phantom Cookie a speed boost during skill windows. That extra speed means more ground covered in each activation.',
               },
               {
-                name: 'Cotton Candy Pup (Tier B — Beginner Reviver)',
-                desc: 'Yields a flat revive shield that restores 30 Energy upon death. Great for beginners learning stage segment layouts, but should be replaced by scoring pets once collision rates drop.',
+                name: 'Cotton Candy Birdie (Tier A — Beginner Reviver)',
+                desc: 'Drops revival hearts and health-restoring items during the run. Useful while you are learning obstacle layouts, but swap to a scoring pet once you stop dying to the same sections.',
               },
             ].map((pet) => (
               <div key={pet.name} className="rounded-2xl border-2 border-border bg-card p-5">
@@ -164,7 +155,7 @@ export default function PetTierListPage() {
                   ],
                   [
                     'Princess Bari (Sustain/Quests)',
-                    'Golden Cheesebird or Cotton Candy Pup for maximum safety.',
+                    'Cotton Candy Birdie for extra hearts, or any survival pet that helps you stay alive longer.',
                     'Farming pets that do not help clear quest requirements.',
                   ],
                 ].map(([cookie, choose, avoid]) => (

@@ -39,6 +39,25 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
+            <hr className="my-3 border-border" />
+            <ul className="grid gap-2 text-sm">
+              <li>
+                <Link
+                  href="/about"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
           </nav>
         </div>
 

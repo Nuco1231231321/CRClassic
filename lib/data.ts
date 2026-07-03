@@ -154,15 +154,15 @@ export const COOKIE_TIERS: CookieTier[] = [
     tier: 'S',
     role: 'Sustain / High Score',
     bestFor: 'Consistent competitive League score runs',
-    earlyValue: 'Extremely forgiving due to her Flower Jelly gauge and Sacred Tree self-revival skill.',
-    upgradePriority: 'Max first. She offers the highest score safety net for both beginners and veterans.',
+    earlyValue: 'Her Flower Jelly gauge charges a Sacred Tree that revives her once per run. That single revive makes her the safest pick for both new players and League grinders.',
+    upgradePriority: 'Max first. She offers the best score safety net in the roster — forgiving enough for beginners, strong enough for veterans.',
   },
   {
     name: 'Lotus Root Phantom Cookie',
     tier: 'S',
     role: 'Extreme Scoring',
     bestFor: 'Endgame League leaderboard records',
-    earlyValue: 'Difficult to unlock early, but has the absolute highest score ceiling in the game.',
+    earlyValue: 'Hard to unlock early, but once you do, no other cookie pushes score higher. The ceiling is real, it just takes practice to reach it.',
     upgradePriority: 'Max immediately once unlocked. Best paired with Lotus Sitter.',
   },
   {
@@ -170,55 +170,39 @@ export const COOKIE_TIERS: CookieTier[] = [
     tier: 'S',
     role: 'Legendary Coin Farming',
     bestFor: 'Ultimate coin farming efficiency loops',
-    earlyValue: 'The premier Legendary economy character. Unlocking him early speeds up early progression.',
-    upgradePriority: 'Max immediately. Crucial to sustain the gold costs of subsequent S-tier upgrades.',
+    earlyValue: 'The go-to cookie for gold. Unlock him early and your whole account moves faster — upgrades, Energy levels, everything costs coins and he prints them.',
+    upgradePriority: 'Max immediately. His gold output sustains the upgrade costs for the rest of your S-tier roster.',
   },
   {
-    name: 'Pine Monk Cookie',
+    name: 'Fire Spirit Cookie',
     tier: 'A',
-    role: 'Obstacle Clearance',
-    bestFor: 'Story Mode and Tower of Frozen Waves progression',
-    earlyValue: 'Reliable all-rounder that clears obstacles and sweeps stages comfortably.',
-    upgradePriority: 'Highly recommended for clearing tricky level-based quests.',
+    role: 'Score / Burst',
+    bestFor: 'Burst scoring during obstacle-dense zones',
+    earlyValue: 'He shines in bursts during dense obstacle sections, but only if you have strong treasures backing him up. Not a first pick.',
+    upgradePriority: 'Upgrade after you have a reliable daily farmer and scoring main in place.',
   },
   {
     name: 'Buttercream Choco Cookie',
     tier: 'A',
     role: 'Passive / Relay Coin Bonus',
     bestFor: 'Relay (second-runner) position on coin runs',
-    earlyValue: 'Unusable as a main runner, but yields massive passive coin multipliers at run end.',
-    upgradePriority: 'Max out his level to unlock the highest flat coin-percentage bonus.',
-  },
-  {
-    name: 'Fire Spirit Cookie',
-    tier: 'A',
-    role: 'Score / Burst',
-    bestFor: 'Burst scoring during specific obstacle-dense zones',
-    earlyValue: 'Niche choice because it requires high-level supporting treasures to excel.',
-    upgradePriority: 'Upgrade after establishing a reliable daily farmer and scoring main.',
-  },
-  {
-    name: 'Pumpkin Pie Cookie',
-    tier: 'B',
-    role: 'Bonus Time Extension',
-    bestFor: 'Chasing high scores via Bonus Time strategies',
-    earlyValue: 'Decent placeholder for extending runs if you lack S-tier sustain.',
-    upgradePriority: 'Keep at mid-level unless running a specific Bonus Time build.',
+    earlyValue: 'Do not put him in the lead slot. His value comes at the end of a run — the relay bonus multiplies your gold by a flat percentage. Worth leveling once your main farmer is set.',
+    upgradePriority: 'Max out his level to unlock the highest flat coin-percentage bonus, but only after your primary runner is upgraded.',
   },
   {
     name: 'GingerBrave',
-    tier: 'B',
+    tier: 'C',
     role: 'Starter / Basic Run',
     bestFor: 'Learning basic jump/slide physics',
-    earlyValue: 'Default starter. Safe to control but lacks score ceiling.',
-    upgradePriority: 'Low. Switch to Potato Salad or Bari as soon as they are pulled.',
+    earlyValue: 'You start with him. He handles fine and the controls click fast, but there is no real scoring potential. Swap him the moment you pull something better.',
+    upgradePriority: 'Low. Switch to Potato Salad or Bari as soon as you pull them.',
   },
   {
     name: 'Strawberry Cookie',
     tier: 'C',
     role: 'Basic Coin Pickup',
     bestFor: 'Very early casual coin farming',
-    earlyValue: 'Slightly helpful for Day 1 coins, completely outclassed by Potato Salad later.',
+    earlyValue: 'Picks up basic coins okay on day one. That is about it. Once Potato Salad shows up, she stays benched.',
     upgradePriority: 'Do not invest. Save coins for S-tier economic characters.',
   },
 ]
@@ -237,123 +221,28 @@ export const PET_TIER_UPDATED = 'June 30, 2026'
 
 export const PET_TIERS: PetTier[] = [
   {
+    name: 'Mr. Limeguard',
+    tier: 'S',
+    pairedCookie: 'Potato Salad Cookie',
+    bestFor: 'High-speed coin grinding sessions',
+    earlyValue: 'Drops Lime Potions that restore Energy and spawn extra coins. Combined with Potato Salad, these potions extend run duration and maximize his coin conversion cycles.',
+    upgradePriority: 'Max alongside Potato Salad Cookie to form the highest yielding economic team.',
+  },
+  {
     name: 'Lotus Sitter',
     tier: 'S',
     pairedCookie: 'Lotus Root Phantom Cookie',
     bestFor: 'Endgame scoring synergy',
-    earlyValue: 'Generates specialized Lotus Jellies and grants speed boosts to Lotus Root.',
+    earlyValue: 'Generates specialized Lotus Jellies and grants speed boosts to Lotus Root during her skill windows.',
     upgradePriority: 'Max alongside Lotus Root Phantom Cookie for maximum high scores.',
   },
   {
-    name: 'Golden Cheesebird',
-    tier: 'S',
-    pairedCookie: 'Any scoring Cookie',
-    bestFor: 'Long scoring runs & bear jelly density',
-    earlyValue: 'Extremely flexible. Drops high-value cheese jellies regardless of runner.',
-    upgradePriority: 'The safest, most versatile pet to level up first for general content.',
-  },
-  {
-    name: 'Sold-Out Bread',
-    tier: 'S',
-    pairedCookie: 'Potato Salad Cookie',
-    bestFor: 'High-speed coin grinding sessions',
-    earlyValue: 'Regularly creates potion jellies that prolong runs and spawns extra high-value coin baskets.',
-    upgradePriority: 'Max alongside Potato Salad Cookie to form the highest yielding economic team.',
-  },
-  {
-    name: 'Glitter Pixel Flower',
+    name: 'Cotton Candy Birdie',
     tier: 'A',
-    pairedCookie: 'Bonus Time Cookies',
-    bestFor: 'Extending and scoring in Bonus Time',
-    earlyValue: 'Provides consistent value when running high Bonus Time configurations.',
-    upgradePriority: 'Upgrade after establishing your main coin and score pets.',
-  },
-  {
-    name: 'Cotton Candy Pup',
-    tier: 'B',
     pairedCookie: 'Any Cookie (Survival)',
     bestFor: 'Early progression and learning obstacle patterns',
-    earlyValue: 'Provides revives and extra health potions to save you from mistimed jumps.',
+    earlyValue: 'Drops revival hearts and extra health items. Great for learning stage layouts without burning through your energy.',
     upgradePriority: 'Keep low. Swap out for scoring pets once you learn stage layouts.',
-  },
-  {
-    name: 'Jelly Worm',
-    tier: 'B',
-    pairedCookie: 'Coin/Basic Cookies',
-    bestFor: 'Pulling stray jellies into your path',
-    earlyValue: 'Decent free companion that acts as a mini-magnet.',
-    upgradePriority: 'Low. Replace with S-tier magnet treasures or S-tier pets.',
-  },
-  {
-    name: 'Sparkling Star',
-    tier: 'C',
-    pairedCookie: 'Starter Cookies',
-    bestFor: 'Day 1 minor point boosts',
-    earlyValue: 'Basic placeholder pet. Outclassed immediately after your first tutorial pulls.',
-    upgradePriority: 'Do not upgrade.',
-  },
-]
-
-// ---------- Treasure tier list ----------
-export type TreasureTier = {
-  name: string
-  tier: Tier
-  effect: string
-  bestFor: string
-  earlyValue: string
-  upgradePriority: string
-}
-
-export const TREASURE_TIER_UPDATED = 'June 30, 2026'
-
-export const TREASURE_TIERS: TreasureTier[] = [
-  {
-    name: 'Gold Pocket Watch',
-    tier: 'S',
-    effect: 'Extends Bonus Time duration & multiplier',
-    bestFor: 'Score-dense runs relying on Bonus Time',
-    earlyValue: 'The single most important score multiplier in the game.',
-    upgradePriority: 'Spend your Supreme tickets to max this first. Essential for S-tier scores.',
-  },
-  {
-    name: 'Bear Jelly’s Wristwatch',
-    tier: 'S',
-    effect: 'Significantly boosts Bear Jelly values',
-    bestFor: 'Density-heavy scoring runs',
-    earlyValue: 'Massive passive scoring boost that works on all maps and runners.',
-    upgradePriority: 'Max out alongside Gold Pocket Watch. S-tier versatility.',
-  },
-  {
-    name: 'Lucky Coin Pouch',
-    tier: 'S',
-    effect: 'Increases all coin pickup values by a flat %',
-    bestFor: 'Coin farming economy loops',
-    earlyValue: 'Allows you to easily double your coins earned per run when maxed.',
-    upgradePriority: 'Max immediately to speed up all subsequent character/pet level costs.',
-  },
-  {
-    name: 'Squishy Jelly Watch',
-    tier: 'A',
-    effect: 'Increases overall jelly spawn rate',
-    bestFor: 'Consistent score runs and filling skill gauges',
-    earlyValue: 'Highly accessible score treasure that helps fill skill meters faster.',
-    upgradePriority: 'Excellent choice to upgrade as your third general treasure slot.',
-  },
-  {
-    name: 'Sugar Swan Feather',
-    tier: 'A',
-    effect: 'Grants an energy shield and magnetic pull',
-    bestFor: 'New players struggling to survive obstacle density',
-    earlyValue: 'Acts as a safety net and helps collect jellies without precise positioning.',
-    upgradePriority: 'Upgrade to level 3-4 for the magnet effect, then pivot to score treasures.',
-  },
-  {
-    name: 'Hollow Energy Drink',
-    tier: 'B',
-    effect: 'Speeds up skill gauge recovery',
-    bestFor: 'Dash-reliant or skill-reliant Cookies',
-    earlyValue: 'Situational. Only useful for cookies with powerful active dash skills.',
-    upgradePriority: 'Medium. Only upgrade if you are running a dash-heavy meta build.',
   },
 ]
 

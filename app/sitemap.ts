@@ -2,28 +2,29 @@ import type { MetadataRoute } from 'next'
 import { SITE } from '@/lib/data'
 
 const BASE_URL = `https://${SITE.domain}`
-const LAST_MODIFIED = new Date('2026-06-30T00:00:00+08:00')
 
 export const dynamic = 'force-static'
 
 const ROUTES = [
-  { path: '/', priority: 1 },
-  { path: '/cookie-run-classic-codes', priority: 0.8 },
-  { path: '/cookie-run-classic-code-redeem', priority: 0.8 },
-  { path: '/cookie-run-classic-tier-list', priority: 0.8 },
-  { path: '/cookie-run-classic-pet-tier-list', priority: 0.8 },
-  { path: '/cookie-run-classic-treasure-tier-list', priority: 0.8 },
-  { path: '/cookie-run-classic-pc', priority: 0.8 },
-  { path: '/cookie-run-classic-beginner-guide', priority: 0.8 },
-  { path: '/cookie-run-classic-reroll', priority: 0.8 },
-  { path: '/cookie-run-classic-meta', priority: 0.8 },
-  { path: '/cookie-run-classic-wiki', priority: 0.8 },
+  { path: '/', lastModified: '2026-06-30', priority: 1 },
+  { path: '/cookie-run-classic-codes', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-code-redeem', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-tier-list', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-pet-tier-list', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-treasure-tier-list', lastModified: '2026-07-03', priority: 0.8 },
+  { path: '/cookie-run-classic-pc', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-beginner-guide', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-reroll', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-meta', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/cookie-run-classic-wiki', lastModified: '2026-06-30', priority: 0.8 },
+  { path: '/about', lastModified: '2026-07-03', priority: 0.5 },
+  { path: '/privacy', lastModified: '2026-07-03', priority: 0.3 },
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map((route) => ({
     url: `${BASE_URL}${route.path === '/' ? '' : route.path}`,
-    lastModified: LAST_MODIFIED,
+    lastModified: route.lastModified,
     changeFrequency: 'daily',
     priority: route.priority,
   }))

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Callout,
   Faq,
@@ -9,9 +8,8 @@ import {
   Prose,
   RelatedLinks,
   Section,
-  TierPill,
 } from '@/components/blocks'
-import { TREASURE_TIER_UPDATED, TREASURE_TIERS } from '@/lib/data'
+import { SITE } from '@/lib/data'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -49,141 +47,127 @@ export default function TreasureTierListPage() {
         breadcrumb="Treasure Tier List"
         h1="Cookie Run Classic Treasure Tier List"
         intro="Treasures decide how far your resources go. Use this guide to choose score, survival, and daily-use treasures without wasting rare upgrade items."
-        updated={TREASURE_TIER_UPDATED}
+        updated={SITE.lastSiteUpdate}
       />
       <PageBody>
-        <Section id="treasure-priority" title="Treasure priority table">
+        <Section id="how-treasures-work" title="How the treasure system works">
+          <Prose>
+            <p>
+              You can equip up to three treasures per run. The first slot is open from the start. The second and third slots cost crystals to unlock — and that should be your first crystal purchase, before you spend anything on treasure draws.
+            </p>
+            <p>
+              Treasures fall into three broad categories. Every run needs a mix, but the balance shifts depending on what you are trying to do.
+            </p>
+          </Prose>
+        </Section>
+
+        <Section id="treasure-categories" title="Treasure categories at a glance">
           <div className="overflow-x-auto rounded-2xl border-2 border-border">
-            <table className="w-full min-w-[880px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-secondary text-foreground">
-                  <th className="p-3 font-700">Treasure</th>
-                  <th className="p-3 font-700">Tier</th>
-                  <th className="p-3 font-700">Effect</th>
-                  <th className="p-3 font-700">Best Use</th>
-                  <th className="p-3 font-700">Upgrade Priority</th>
+                  <th className="p-3 font-700">Category</th>
+                  <th className="p-3 font-700">What it does</th>
+                  <th className="p-3 font-700">Best for</th>
+                  <th className="p-3 font-700">When to prioritize</th>
                 </tr>
               </thead>
               <tbody>
-                {TREASURE_TIERS.map((treasure) => (
-                  <tr
-                    key={treasure.name}
-                    className="border-t-2 border-border bg-card align-top"
-                  >
-                    <td className="p-3 font-700 text-foreground">
-                      {treasure.name}
-                    </td>
-                    <td className="p-3">
-                      <TierPill tier={treasure.tier} />
-                    </td>
-                    <td className="p-3 text-muted-foreground">
-                      {treasure.effect}
-                    </td>
-                    <td className="p-3 text-muted-foreground">
-                      {treasure.bestFor}
-                    </td>
-                    <td className="p-3 text-muted-foreground">
-                      {treasure.upgradePriority}
-                    </td>
-                  </tr>
-                ))}
+                <tr className="border-t-2 border-border bg-card align-top">
+                  <td className="p-3 font-700 text-foreground">Score</td>
+                  <td className="p-3 text-muted-foreground">Boosts jelly values, Bonus Time duration, or skill-gauge fill rate</td>
+                  <td className="p-3 text-muted-foreground">League runs and score chasing</td>
+                  <td className="p-3 text-muted-foreground">Once you can consistently survive the full run distance</td>
+                </tr>
+                <tr className="border-t-2 border-border bg-card align-top">
+                  <td className="p-3 font-700 text-foreground">Survival</td>
+                  <td className="p-3 text-muted-foreground">Grants shields, revival, or extra energy recovery</td>
+                  <td className="p-3 text-muted-foreground">Quest clearance, story mode, and learning new maps</td>
+                  <td className="p-3 text-muted-foreground">Early game and whenever you are stuck on a distance-based mission</td>
+                </tr>
+                <tr className="border-t-2 border-border bg-card align-top">
+                  <td className="p-3 font-700 text-foreground">Economy</td>
+                  <td className="p-3 text-muted-foreground">Raises coin pickup values or generates bonus items</td>
+                  <td className="p-3 text-muted-foreground">Gold farming with Potato Salad Cookie</td>
+                  <td className="p-3 text-muted-foreground">After unlocking all three slots and establishing a main runner</td>
+                </tr>
               </tbody>
             </table>
           </div>
         </Section>
 
-        <Section id="best-treasures" title="Detailed S & A Tier Treasure Analysis">
-          <Prose>
-            <p>
-              Treasures offer passive, account-wide bonuses that scale infinitely. While cookies and pets shift in availability, maxing out your core S-tier treasures will secure your scoring base permanently:
-            </p>
-          </Prose>
-
-          <div className="mt-6 space-y-6">
-            {[
-              {
-                name: 'Gold Pocket Watch (Tier S — Apex Score Booster)',
-                desc: 'Extends the total duration of the Bonus Time phase and multiplies all points collected within it. Since Bonus Time is the dense-scoring zone of every run, this is the single most important card to pull with Supreme tickets.',
-              },
-              {
-                name: 'Bear Jelly’s Wristwatch (Tier S — Raw Point Multiplier)',
-                desc: 'Passively increases the score of all Bear Jellies (Yellow, Pink, Ice) by a flat number. Because Bear Jellies represent over 60% of the jelly density in competitive leagues, this treasure is universally strong for all layouts.',
-              },
-              {
-                name: 'Lucky Coin Pouch (Tier S — Economy Engine)',
-                desc: 'Increases all coin pickup values by a flat percentage (up to 20% at max level). This is the cornerstone of Potato Salad gold-farming loops, allowing you to double your hourly gold farming efficiency.',
-              },
-              {
-                name: 'Squishy Jelly Watch (Tier A — Skill Gauge Accelerator)',
-                desc: 'Increases overall jelly spawn rate on the track, assisting cookies that require total jelly counts to trigger their active transformations (such as Princess Bari).',
-              },
-              {
-                name: 'Sugar Swan Feather (Tier A — Collision Shield & Magnet)',
-                desc: 'Grants an energy shield that absorbs one collision hit on start and introduces a moderate magnetic vacuum effect. This magnet pull lets you sweep up jellies without having to risk mistimed double-jumps.',
-              },
-            ].map((treasure) => (
-              <div key={treasure.name} className="rounded-2xl border-2 border-border bg-card p-5">
-                <h3 className="font-heading text-lg font-700 text-foreground mb-2">
-                  {treasure.name}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {treasure.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4">
-            <ImageFigure
-              src="/images/treasure-upgrade-check.webp"
-              alt="CookieRun Classic treasure inventory and upgrade screen"
-              caption="Treasure inventory and upgrade screen for checking equipped slots before spending rare items."
-            />
-          </div>
-        </Section>
-
-        <Section id="treasure-formulas" title="The 3 Equipped Slot Formulas">
+        <Section id="spending-priority" title="How to spend your upgrade resources">
           <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              {
-                title: 'Scoring Meta Formula',
-                body: 'Gold Pocket Watch (S) + Bear Jelly’s Wristwatch (S) + Squishy Jelly Watch (A). Maxes out points during active skill triggers and Bonus Time.',
-              },
-              {
-                title: 'Gold Farming Formula',
-                body: 'Lucky Coin Pouch (S) + Sugar Swan Feather (A) + Squishy Jelly Watch (A). Magnet effect ensures you never miss a coin, while the Pouch multiplies values.',
-              },
-              {
-                title: 'Sustain / Quest Formula',
-                body: 'Sugar Swan Feather (A) + Cotton Candy Potion (B) + Bear Jelly’s Wristwatch (S). Focuses on extra lives, shields, and passive magnets for easy clears.',
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border-2 border-border bg-card p-5"
-              >
-                <h3 className="font-heading text-lg font-600 text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.body}
-                </p>
-              </div>
-            ))}
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                1. Unlock three slots first
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Your first crystals should go toward the second and third treasure slots. Running three treasures at low levels beats running one good treasure in a single slot.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                2. Upgrade for your main runner
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Equip and upgrade treasures that support the one cookie you use every day. A score treasure is wasted if your runner dies before Bonus Time.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                3. Level to 3 before going higher
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Many treasures unlock their secondary effect at level 3 — shields, magnets, or extra multiplier windows. Spread levels across your three equipped treasures before maxing any single one.
+              </p>
+            </div>
           </div>
         </Section>
 
-        <Section id="spending-rules" title="Treasure Ticket Spending Rules">
+        <Section id="loadout-strategies" title="Loadout strategies by game stage">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                Early game (days 1-3)
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Prioritize survival. A shield treasure that absorbs one hit and a magnet that pulls jellies into your path will keep runs alive longer than any score boost. The goal is distance, not points.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                Mid game (farming phase)
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Switch one slot to an economy treasure that boosts coin pickups. Combined with Potato Salad Cookie and Mr. Limeguard, this accelerates your Energy level upgrades.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-border bg-card p-5">
+              <h3 className="font-heading text-lg font-600 text-foreground">
+                Late game (League scoring)
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        Drop survival gear entirely. Run three score-focused treasures that extend Bonus Time, boost jelly values, and fill skill gauges faster. Every slot should push points.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="spending-rules" title="Ticket and resource spending rules">
+          <Callout variant="warning" title="Rare upgrade items do not come back">
+            Supreme tickets and rare treasure materials are limited. Spending them on a niche treasure you will replace next week will slow your progress by days.
+          </Callout>
           <Prose>
             <ul className="ml-5 list-disc space-y-2">
               <li>
-                <strong>Unlock slots first:</strong> Never draw treasures until you have unlocked all 3 equipment slots. Running 3 low-level treasures yields far more stats than 1 high-level treasure.
+                <strong>Unlock slots first:</strong> Never draw or upgrade treasures seriously until you have all 3 equipment slots unlocked. Three low-level treasures are stronger than one high-level treasure alone.
               </li>
               <li>
-                <strong>Level 3 milestone:</strong> Leveling treasures to level 3 unlocks their secondary passive triggers (like the Magnet effect on Sugar Swan Feather). Get your A-tier cards to level 3 before maxing out S-tier cards.
+                <strong>Upgrade what you equip:</strong> If a treasure is not in your active loadout, do not level it. Resources spent on unused treasures delay your actual progression.
               </li>
               <li>
-                <strong>Skip niche cards:</strong> Do not spend Supreme tickets upgrading situational cards (like coin multiplier pouches if you do not farm coins daily).
+                <strong>Check before ranking up:</strong> Some treasures change their behavior at certain level thresholds. Read the preview before confirming a rank-up so you do not waste the material on a secondary effect you do not need.
               </li>
             </ul>
           </Prose>

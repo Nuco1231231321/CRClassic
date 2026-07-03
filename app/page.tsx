@@ -211,8 +211,16 @@ export default function HomePage() {
             </h2>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-foreground/90">
               <p>
-                CookieRun Classic is an endless runner from Devsisters that
-                brings the series back to its simple, fast-paced roots. You tap
+                CookieRun Classic is an endless runner from{' '}
+                <Link
+                  href="http://www.devsisters.com/"
+                  className="font-700 text-primary hover:underline"
+                  rel="nofollow noopener"
+                  target="_blank"
+                >
+                  Devsisters
+                </Link>{' '}
+                that brings the series back to its simple, fast-paced roots. You tap
                 to jump and slide, collect jellies, dodge obstacles, and run as
                 far as you can to escape the Witch&apos;s Oven.
               </p>

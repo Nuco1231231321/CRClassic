@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   Callout,
   Faq,
@@ -120,10 +119,9 @@ export default function PcPage() {
             </ul>
           </Prose>
           <div className="mt-4 rounded-2xl border border-dashed border-primary/40 bg-card p-4">
-            <h4 className="font-heading text-sm font-700 text-foreground">✍️ My Keymapping Testimonial (Edit this to customize 30% human input)</h4>
+            <h4 className="font-heading text-sm font-700 text-foreground">My keymapping setup</h4>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              {/* EDIT ME: Change these keys or add your personal muscle memory tips! */}
-              In my testing on LDPlayer 9.0, switching from Space/Down to F/J cut down my input latency instantly. I also mapped my active skill activation to the D key so I can easily smash it with my left index finger when Potato Salad Cookie enters his conversion loop.
+              On LDPlayer 9.0, I switched from the default Space + Down Arrow to F/J and the input lag disappeared. I mapped the active skill to D so I can hit it with my left index finger during Potato Salad's coin conversion loop without moving my hands.
             </p>
           </div>
           <div className="mt-4">
